@@ -44,7 +44,8 @@
     "johnpbloch/wordpress": "4.0.1",
     "composer/installers": "v1.0.12",
     "vlucas/phpdotenv": "1.0.9",
-    "wpackagist-plugin/bruteprotect": "2.3.3"
+    "wpackagist-plugin/bruteprotect": "2.3.3",
+    "wpackagist-plugin/jetpack": "3.2.1"
   },
   "extra": {
     "installer-paths": {
