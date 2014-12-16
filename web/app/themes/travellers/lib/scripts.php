@@ -21,12 +21,13 @@ function roots_scripts() {
    */
   if (WP_ENV === 'development') {
 
-    $stylesheetTime = filemtime( './' );
+    $stylesheetTime = filemtime( get_stylesheet_directory() . '/style.css' );
 
 
-    wp_enqueue_style( 'main-style', get_stylesheet_uri() );
+    wp_enqueue_style( 'main-style', get_stylesheet_uri(), false, $stylesheetTime );
 
     wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/vendor/modernizr.js', array(), $stylesheetTime, true );
+    wp_enqueue_script( 'smoothState', get_template_directory_uri() . '/js/vendor/smoothState.js', array( 'jquery'), $stylesheetTime, true );
 
 
     // $assets = array(
