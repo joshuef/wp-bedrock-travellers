@@ -6,18 +6,18 @@
           	wp_nav_menu(array('theme_location' => 'primary_navigation', 'menu_class' => 'nav navbar-nav'));
         endif;
       ?>
+    </nav>  
+
+    <nav class="collapsed js-navbar--languages navbar js-navbar" role="navigation">
+      <?php
+        if (has_nav_menu('language_navigation')) :
+          	wp_nav_menu(array('theme_location' => 'language_navigation', 'menu_class' => 'nav navbar--languages__ul'));
+        endif;
+      ?>
     </nav>
 
     <div class="nav-mask  js-nav-mask"></div>
 
-   
-
-    <?php 
-
-    // navbar can go inside. we can have a different one for languages
-    // they just need to pop up, and we can have a wee close button there
-    // 
-    //   ?>
 </div>
 <header class="banner-container" role="banner">
   	<div class="container banner">

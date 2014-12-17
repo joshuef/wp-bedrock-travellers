@@ -17,7 +17,7 @@ $roots_includes = array(
 	// 'lib/sidebar.php',         // Sidebar class
 	'lib/config.php',          // Configuration
 	// 'lib/activation.php',      // Theme activation
-	// 'lib/titles.php',          // Page titles
+	'lib/titles.php',          // Page titles
 	// 'lib/nav.php',             // Custom nav modifications
 	// 'lib/gallery.php',         // Custom [gallery] modifications
 	'lib/scripts.php',         // Scripts and stylesheets

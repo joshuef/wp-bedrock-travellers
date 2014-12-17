@@ -20,123 +20,144 @@
 // rename this variable, you will also need to rename the namespace below.
 var Travellers = {
   // All pages
-  common: {
-    fonz: {}, //smoothstate
-    init: function() 
-    {
-    // JavaScript to be fired on all pages
-        var self = this;
-
-        this.fonz = $('#main-content').smoothState(
-                    { 
-                        prefetch: true,
-                        development: true,
-                        pageCacheSize: 4
-                    });
-
-
-        // not working . maybe overkill / maybe just have nav inside the container
-        // this.makeNavigationSmooth( $( '.js-site-nav') );
-
-
-
-        //To be run only on certain fishsizes
-        $( document ).ready( function()
+    common: {
+        fonz: {}, //smoothstate
+        init: function() 
         {
-            var fishSize = window.getComputedStyle( document.body,':after' ).getPropertyValue( 'content' );
-            console.log( fishSize );
+        // JavaScript to be fired on all pages
+            var self = this;
 
-            if( fishSize === 'shrimp' || fishSize === 'tuna' )
+            this.fonz = $('#main-content').smoothState(
+                        { 
+                            prefetch: true,
+                            development: true,
+                            pageCacheSize: 4
+                        });
+
+
+            // not working . maybe overkill / maybe just have nav inside the container
+            // this.makeNavigationSmooth( $( '.js-site-nav') );
+
+
+
+            //To be run only on certain fishsizes
+            $( document ).ready( function()
             {
-                self.bindNavMenusToSide();
+                var fishSize = window.getComputedStyle( document.body,':after' ).getPropertyValue( 'content' );
+                console.log( fishSize );
 
-            }
-            
-        })
-    },
-    /*
-        Make Navigation Smooth
+                if( fishSize === 'shrimp' || fishSize === 'tuna' )
+                {
+                    self.makeCurrentLanguageAToggler();
+                    self.bindNavMenusToSide();
 
-        Should hijack navigation links (site only) and force smooth state to load them
-        even if they aren't within the smoothstate content area.
-
-        compare the host id to the link. or if its relative?? or just use a class
-     */
-    makeNavigationSmooth : function ( element )
-    {
-        var self = this;
-        if( !element.jquery )
-        {
-            element = $( element );
-        }
-
-        if( !element.prop( 'href' ) )
-        {
-            element = element.children( 'a[href]' );
-
-            if( ! element.length )
-            {
-                $.error( 'no href on your link ', element  )
-                return;
+                }
                 
-            }
-        }
+            })
+        },
+        /*
+            Make Navigation Smooth
 
-        element.click( function smoothThisNavigation( e )
+            Should hijack navigation links (site only) and force smooth state to load them
+            even if they aren't within the smoothstate content area.
+
+            compare the host id to the link. or if its relative?? or just use a class
+         */
+        makeNavigationSmooth : function ( element )
         {
-            e.preventDefault();
-            var target = $( e.target );
-            var href    = target.prop( 'href' );
-            console.log( href );
-            if( typeof href !== 'undefined' )
+            var self = this;
+            if( !element.jquery )
             {
-                // self.fonz.load( href );
+                element = $( element );
             }
 
-        });
-
-    },
-
-
-    /**
-     * Sets up jq behaviour for nav menus to slide in from the side
-     * via access data-target on the toggler buttons
-     * 
-     */
-    bindNavMenusToSide : function ( )
-    {
-        //check via our css media queries, the screen size.
-
-        var menus = $( '.js-navbar-toggle' );
-        var mask = $( '.js-nav-mask' );
-
-        mask.click( function( e )
-        {   
-            mask.removeClass( 'open' );
-            menus.data( 'target').removeClass( 'open' );
-        })
-
-        $.each( menus, function eachMenu( i, menu )
-        {
-            var targetMenu;
-
-            if( !menu.jquery )
+            if( !element.prop( 'href' ) )
             {
-                menu = $( menu );
-                menu.data( 'target', $( menu.data( 'target' ) ) );
+                element = element.children( 'a[href]' );
+
+                if( ! element.length )
+                {
+                    $.error( 'no href on your link ', element  )
+                    return;
+                    
+                }
             }
 
-
-            menu.bind( 'click', function( e )
+            element.click( function smoothThisNavigation( e )
             {
-                menu.data( 'target').toggleClass( 'open' );
-                mask.toggleClass( 'open' );
+                e.preventDefault();
+                var target = $( e.target );
+                var href    = target.prop( 'href' );
+                console.log( href );
+                if( typeof href !== 'undefined' )
+                {
+                    // self.fonz.load( href );
+                }
+
             });
 
+        },
 
-        });
-    }
-  },
+
+        /**
+         * Sets up jq behaviour for nav menus to slide in from the side
+         * via access data-target on the toggler buttons
+         * 
+         */
+        bindNavMenusToSide : function ( )
+        {
+            //check via our css media queries, the screen size.
+
+            var menus = $( '.js-navbar-toggle' );
+            var mask = $( '.js-nav-mask' );
+
+            mask.click( function( e )
+            {   
+                mask.removeClass( 'open' );
+                menus.data( 'target').removeClass( 'open' );
+            })
+
+            $.each( menus, function eachMenu( i, menu )
+            {
+                var targetMenu;
+
+                if( !menu.jquery )
+                {
+                    menu = $( menu );
+                    menu.data( 'target', $( menu.data( 'target' ) ) );
+                }
+
+
+                menu.bind( 'click', function( e )
+                {
+                    menu.data( 'target').toggleClass( 'open' );
+                    mask.toggleClass( 'open' );
+                });
+
+
+            });
+        },
+
+        /**
+         * Sets up the current language to be a toggler for a full language
+         * menu. (Normally triggered only on smaller screens )
+         */
+        makeCurrentLanguageAToggler : function ( )
+        {
+            console.log( 'LANGUAGEtoggllrrr' );
+            var current = $( '.current-lang' );
+            
+            current.data( 'target', $( '.js-navbar--languages' ) ) ;
+            current.addClass( 'js-navbar-toggle' );
+
+            current.click( function(e)
+            { 
+                e.preventDefault(); 
+                console.log( current.data('target') );
+            });
+
+        }
+    },
   // Home page
   home: {
     init: function() {
