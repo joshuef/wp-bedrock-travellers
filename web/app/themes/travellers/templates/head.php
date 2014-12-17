@@ -15,12 +15,5 @@
         
         <?php wp_head(); ?>
 
-        <?php   
-        if (WP_ENV === 'development') {
-        ?>
-
-        <?php   
-        } //END CONDITIONAL JS FOR DEV STYLES
-        ?>
     </head>
 

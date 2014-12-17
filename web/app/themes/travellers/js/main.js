@@ -21,17 +21,62 @@
 var Travellers = {
   // All pages
   common: {
+    fonz: {}, //smoothstate
     init: function() {
-      // JavaScript to be fired on all pages
-      console.log( 'THISISHAPPENING' );
+    // JavaScript to be fired on all pages
+        this.fonz = $('#main-content').smoothState(
+                    { 
+                        prefetch: true,
+                        development: true,
+                        pageCacheSize: 4
+                    });
 
-        $('#main-content').smoothState(
-            { 
-                prefetch: true,
-                pageCacheSize: 4
+        // not working . maybe overkill / maybe just have nav inside the container
+        // this.makeNavigationSmooth( $( '.js-site-nav') );
+
+    },
+    /*
+        Make Navigation Smooth
+
+        Should hijack navigation links (site only) and force smooth state to load them
+        even if they aren't within the smoothstate content area.
+
+        compare the host id to the link. or if its relative?? or just use a class
+     */
+    makeNavigationSmooth : function ( element )
+    {
+        var self = this;
+        if( !element.jquery )
+        {
+            element = $( element );
+        }
+
+        if( !element.prop( 'href' ) )
+        {
+            element = element.children( 'a[href]' );
+
+            if( ! element.length )
+            {
+                $.error( 'no href on your link ', element  )
+                return;
+                
             }
-            );
-    }
+        }
+
+        element.click( function smoothThisNavigation( e )
+        {
+            e.preventDefault();
+            var target = $( e.target );
+            var href    = target.prop( 'href' );
+            console.log( href );
+            if( typeof href !== 'undefined' )
+            {
+                // self.fonz.load( href );
+            }
+
+        });
+
+    },
   },
   // Home page
   home: {
