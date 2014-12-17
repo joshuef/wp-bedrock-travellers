@@ -18,12 +18,12 @@ module.exports = function(grunt) {
             src: 'sass/style.scss'
         },
         dataPng : {
-            dest: 'css/png.css',
-            src: 'sass/png.scss'
+            dest: 'css/style--legacy.css',
+            src: 'sass/style--legacy.scss'
         },
         fallback : {
-            dest: 'css/fallback.css',
-            src: 'sass/fallback.scss'
+            dest: 'css/style--fallback.css',
+            src: 'sass/style--fallback.scss'
         }
     },
     watch: {

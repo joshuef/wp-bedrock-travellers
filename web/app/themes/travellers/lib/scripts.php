@@ -40,22 +40,22 @@ function roots_scripts() {
     else
     {
     // Load the main stylesheet
-      // wp_enqueue_style( 'paella-styling-new-ie', plugins_url( 'css/style.css' , __FILE__ ), [], $styleTime );
-      // $wp_styles->add_data( 'paella-styling-new-ie', 'conditional', 'gte IE 9' );
-      // *
-      // * Load our IE specific stylesheet for a range of older versions:
-      // * <!--[if lt IE 9]> ... <![endif]-->
-      // * <!--[if lte IE 8]> ... <![endif]-->
-      // * NOTE: You can use the 'less than' or the 'less than or equal to' syntax here interchangeably.
-      
-      // wp_enqueue_style( 'style--legacy', plugins_url( 'css/style--legacy.css' , __FILE__ ) , [] , $styleTime );
-      // $wp_styles->add_data( 'style--legacy', 'conditional', 'lt IE 9' );
-      // /**
-      // * Load our IE version-specific stylesheet:
-      // * <!--[if IE 7]> ... <![endif]-->
-      // */
-      // wp_enqueue_style( 'style--fallback', plugins_url( 'css/style--fallback.css' , __FILE__ ), [] , $styleTime );
-      // $wp_styles->add_data( 'style--fallback', 'conditional', 'IE 7' );
+      wp_enqueue_style( 'main-style-ie', get_stylesheet_directory_uri() . '/css/style.css', false, $stylesheetTime );
+      $wp_styles->add_data( 'main-style-ie', 'conditional', 'gte IE 9' );
+      /*
+      * Load our IE specific stylesheet for a range of older versions:
+      * <!--[if lt IE 9]> ... <![endif]-->
+      * <!--[if lte IE 8]> ... <![endif]-->
+      * NOTE: You can use the 'less than' or the 'less than or equal to' syntax here interchangeably.
+      */
+      wp_enqueue_style( 'style--legacy', plugins_url( 'css/style--legacy.css' , __FILE__ ) , [] , $styleTime );
+      $wp_styles->add_data( 'style--legacy', 'conditional', 'lt IE 9' );
+      /**
+      * Load our IE version-specific stylesheet:
+      * <!--[if IE 7]> ... <![endif]-->
+      */
+      wp_enqueue_style( 'style--fallback', plugins_url( 'css/style--fallback.css' , __FILE__ ), [] , $styleTime );
+      $wp_styles->add_data( 'style--fallback', 'conditional', 'IE 7' );
     }
     
 
