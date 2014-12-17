@@ -13,7 +13,7 @@
   ?>
 
   <div id="main-content" class="wrap container" role="document">
-    <div class="content row">
+    <div class="content row  scene_element scene_element--fadein">
       <main class="main" role="main">
         <?php include roots_template_path(); ?>
       </main><!-- /.main -->

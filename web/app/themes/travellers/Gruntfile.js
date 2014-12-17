@@ -27,7 +27,7 @@ sass: {
 },
 watch: {
     files: ['sass/**/*.scss'],
-    tasks: [ 'sass']
+    tasks: [ 'sass', 'autoprefixer']
 },
 browserSync: {
     bsFiles: {
@@ -40,7 +40,7 @@ browserSync: {
 },
 autoprefixer : {
     options : {
-      map:  true,
+      // map:  true,
     },
     multiple_files: {
       expand: true,

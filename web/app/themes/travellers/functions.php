@@ -21,6 +21,7 @@ $roots_includes = array(
   // 'lib/nav.php',             // Custom nav modifications
   // 'lib/gallery.php',         // Custom [gallery] modifications
   'lib/scripts.php',         // Scripts and stylesheets
+  'lib/relative-links.php',         // Make all links relative for dev / BrowserSync
   // 'lib/extras.php',          // Custom functions
 );
 
