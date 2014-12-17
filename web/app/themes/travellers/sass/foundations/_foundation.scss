@@ -1,0 +1,43 @@
+.hidden
+{
+    display:                    none !important;
+}
+
+html
+{
+    background-color:           $color-sitebg;
+}
+
+body
+{
+
+}
+
+
+
+
+h1, h2, h3, h4
+{
+    @extend %Intro;
+}
+
+
+
+
+
+a
+{
+    text-decoration:            none;
+}
+
+.main 
+{
+    position:               relative;
+    z-index:                $z-page;
+
+    a
+    {
+        color:                      $color-link;
+
+    }
+}

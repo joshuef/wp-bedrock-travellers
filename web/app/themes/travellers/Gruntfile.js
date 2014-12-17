@@ -49,6 +49,16 @@ autoprefixer : {
       dest: 'css/' // -> dest/css/file1.css, dest/css/file2.css
     },
 },
+svgmin: {
+    myIcons: {
+        files: [{
+            expand: true,
+            cwd: 'images/svg',
+            src: ['*.svg', '*.png'],
+            dest: "images/icons"
+        }]
+    }
+},
 grunticon: {
     myIcons: {
         files: [{
@@ -66,8 +76,9 @@ grunticon: {
         }
     }
 });
+    grunt.loadNpmTasks('grunt-notify');
 
-    grunt.registerTask('default', ['grunticon', 'sass', 'autoprefixer']);
+    grunt.registerTask('default', ['svgmin','grunticon', 'sass', 'autoprefixer']);
     grunt.registerTask('bs', ['browserSync', 'watch']);
 
 };

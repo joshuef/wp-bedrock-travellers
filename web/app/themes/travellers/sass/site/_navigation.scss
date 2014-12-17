@@ -1,0 +1,126 @@
+.banner-container
+{
+    background-color:           $color-white;
+    padding-top:                5px;
+
+    //to allow nav on mobile sufficient space
+    min-height:     100px;
+
+}
+
+.banner
+{
+    position: fixed;
+    top: 0;
+    // display: block;
+    width: 100vw;
+
+    background-color:           $color-header;
+    color:                      $color-white;
+    a
+    {
+        color:                      $color-white;
+        
+    }
+}
+
+
+
+
+
+
+
+
+
+
+.main-navigation
+{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 0;
+    left: 0;
+    overflow: visible;
+    position: relative;
+    z-index:            $z-page +1;
+}
+
+
+.navbar 
+{
+  
+  /*Collapsed */
+    width:                  0; 
+    overflow:               hidden;
+    position:               fixed;
+    top:                    0;
+    left:                   0;
+    height:                 100%;
+    transition:             width 0.3s ease;
+    background-color:       gray;
+
+    &.open 
+    {
+        width:              50%; 
+        z-index:            $z-foreground;
+    }
+}
+
+.nav-mask
+{
+    display: none;
+    width:          100vw;
+    height:         100vh;
+    position:       fixed;
+    background-color: #000;
+    top:            0;
+    left:           0;
+    z-index:        $z-hell;
+    opacity:        0;
+
+    &.open 
+    {
+        display: block;
+        z-index:        $z-foreground -1 ;
+        opacity:        0.3;
+        
+
+    }
+}
+
+
+
+
+// //page container of fonz etc
+// .container
+// {
+//     width:      100%;
+//     float: right;
+//     position: relative;
+// }
+
+
+
+.navbar-toggle 
+{
+    width: 40px;
+    height: 40px;
+    line-height: 0px;
+    box-sizing: border-box;
+    position: absolute;
+
+    background-color: gray;
+
+    top: 5px;
+    left: 5px;
+}
+
+// .burger-bar
+// {
+//     display: inline-block;
+//     width:      100%;
+//     background-color: $color-white;
+//     height: 3px;
+//     margin-bottom: 3px;
+
+// }

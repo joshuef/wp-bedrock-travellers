@@ -25,7 +25,8 @@
     "load-grunt-tasks": "~1.0.0",
     "grunt-browser-sync": "~1.5.3",
     "grunt-sass": "~0.17.0",
-    "grunt-autoprefixer": "~2.0.0"
+    "grunt-autoprefixer": "~2.0.0",
+    "grunt-notify": "~0.4.1"
   },
   "preferGlobal": true,
   "private": true,

@@ -1,0 +1,20 @@
+body:after
+{
+    content: 'shrimp';
+
+    @include breakpoint(S) 
+    {
+         content : 'tuna'
+    }
+
+    @include breakpoint(XM) 
+    {
+         content : 'shark'
+    }
+
+    @include breakpoint(L) 
+    {
+         content : 'whale'
+    }
+
+}

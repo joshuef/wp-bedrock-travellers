@@ -22,8 +22,11 @@ var Travellers = {
   // All pages
   common: {
     fonz: {}, //smoothstate
-    init: function() {
+    init: function() 
+    {
     // JavaScript to be fired on all pages
+        var self = this;
+
         this.fonz = $('#main-content').smoothState(
                     { 
                         prefetch: true,
@@ -31,9 +34,25 @@ var Travellers = {
                         pageCacheSize: 4
                     });
 
+
         // not working . maybe overkill / maybe just have nav inside the container
         // this.makeNavigationSmooth( $( '.js-site-nav') );
 
+
+
+        //To be run only on certain fishsizes
+        $( document ).ready( function()
+        {
+            var fishSize = window.getComputedStyle( document.body,':after' ).getPropertyValue( 'content' );
+            console.log( fishSize );
+
+            if( fishSize === 'shrimp' || fishSize === 'tuna' )
+            {
+                self.bindNavMenusToSide();
+
+            }
+            
+        })
     },
     /*
         Make Navigation Smooth
@@ -77,6 +96,46 @@ var Travellers = {
         });
 
     },
+
+
+    /**
+     * Sets up jq behaviour for nav menus to slide in from the side
+     * via access data-target on the toggler buttons
+     * 
+     */
+    bindNavMenusToSide : function ( )
+    {
+        //check via our css media queries, the screen size.
+
+        var menus = $( '.js-navbar-toggle' );
+        var mask = $( '.js-nav-mask' );
+
+        mask.click( function( e )
+        {   
+            mask.removeClass( 'open' );
+            menus.data( 'target').removeClass( 'open' );
+        })
+
+        $.each( menus, function eachMenu( i, menu )
+        {
+            var targetMenu;
+
+            if( !menu.jquery )
+            {
+                menu = $( menu );
+                menu.data( 'target', $( menu.data( 'target' ) ) );
+            }
+
+
+            menu.bind( 'click', function( e )
+            {
+                menu.data( 'target').toggleClass( 'open' );
+                mask.toggleClass( 'open' );
+            });
+
+
+        });
+    }
   },
   // Home page
   home: {
