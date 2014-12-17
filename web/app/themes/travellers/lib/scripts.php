@@ -22,11 +22,10 @@ function roots_scripts() {
   if (WP_ENV === 'development') {
 
 
-
+    //
+    // STYLES
+    //
     $stylesheetTime = filemtime( get_stylesheet_directory() . '/style.css' );
-
-    wp_enqueue_script( 'modernizr', get_template() . '/js/vendor/modernizr.js', array(), $stylesheetTime, true );
-    wp_enqueue_script( 'smoothState', get_template() . '/js/vendor/smoothState.js', array( 'jquery'), $stylesheetTime, true );
 
     global $wp_styles;
     global $is_IE;
@@ -61,6 +60,10 @@ function roots_scripts() {
 
 
 
+
+    wp_enqueue_script( 'modernizr', get_stylesheet_directory_uri() . '/js/vendor/modernizr.js', array(), $stylesheetTime, true );
+    wp_enqueue_script( 'smoothState', get_stylesheet_directory_uri() . '/js/vendor/smoothState.js', array( 'jquery'), $stylesheetTime, true );
+    wp_enqueue_script( 'main', get_stylesheet_directory_uri() . '/js/main.js', array( 'jquery' ), $stylesheetTime, true );
 
 
 
