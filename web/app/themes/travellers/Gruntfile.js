@@ -12,27 +12,25 @@ grunt.initConfig({
     }
 
 },
-libsass: {
+sass: {
+    options: {
+        sourceMap: true
+    },
     modern : {
-        dest: 'css/style.css',
-        src: 'sass/style.scss'
-    },
-    dataPng : {
-        dest: 'css/style--legacy.css',
-        src: 'sass/style--legacy.scss'
-    },
-    fallback : {
-        dest: 'css/style--fallback.css',
-        src: 'sass/style--fallback.scss'
+        files: { 
+            'css/style.css' : 'sass/style.scss',
+            'css/style--legacy.css' : 'sass/style--legacy.scss',
+            'css/style--fallback.css' : 'sass/style--fallback.scss',
+        }
     }
 },
 watch: {
     files: ['sass/**/*.scss'],
-    tasks: [ 'libsass']
+    tasks: [ 'sass']
 },
 browserSync: {
     bsFiles: {
-        src : 'css/*.css'
+        src : ['css/*.css', 'js/*.js', '**/*.php']
     },
     options: {
             proxy: "dev.travellersinn.pl",
@@ -57,7 +55,7 @@ grunticon: {
     }
 });
 
-    grunt.registerTask('default', ['grunticon', 'libsass']);
+    grunt.registerTask('default', ['grunticon', 'sass']);
     grunt.registerTask('bs', ['browserSync', 'watch']);
 
 };

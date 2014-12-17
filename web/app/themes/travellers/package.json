@@ -17,14 +17,14 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "grunt-libsass": "~0.2.0",
     "grunt": "~0.4.5",
     "grunt-grunticon": "~1.4.0",
     "grunt-svgmin": "~2.0.0",
     "grunt-contrib-watch": "~0.6.1",
     "grunt-contrib-jshint": "~0.10.0",
     "load-grunt-tasks": "~1.0.0",
-    "grunt-browser-sync": "~1.5.3"
+    "grunt-browser-sync": "~1.5.3",
+    "grunt-sass": "~0.17.0"
   },
   "preferGlobal": true,
   "private": true,
