@@ -14,7 +14,8 @@ grunt.initConfig({
 },
 sass: {
     options: {
-        sourceMap: true
+        sourceMap: true,
+        outputStyle: 'compressed'
     },
     modern : {
         files: { 
@@ -37,6 +38,17 @@ browserSync: {
             watchTask: true
         }
 },
+autoprefixer : {
+    options : {
+      map:  true,
+    },
+    multiple_files: {
+      expand: true,
+      flatten: true,
+      src: 'css/*.css', // -> src/css/file1.css, src/css/file2.css
+      dest: 'css/' // -> dest/css/file1.css, dest/css/file2.css
+    },
+},
 grunticon: {
     myIcons: {
         files: [{
@@ -55,7 +67,7 @@ grunticon: {
     }
 });
 
-    grunt.registerTask('default', ['grunticon', 'sass']);
+    grunt.registerTask('default', ['grunticon', 'sass', 'autoprefixer']);
     grunt.registerTask('bs', ['browserSync', 'watch']);
 
 };

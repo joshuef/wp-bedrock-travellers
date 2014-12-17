@@ -25,7 +25,7 @@ var Travellers = {
       // JavaScript to be fired on all pages
       console.log( 'THISISHAPPENING' );
 
-        $('#main-content').smoothState();
+        $('#main-content').smoothState({ prefetch: true });
     }
   },
   // Home page
