@@ -1,19 +1,35 @@
 module.exports = function(grunt) {
 
-  grunt.initConfig({
-    // jshint: {
-    //   files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
-    //   options: {
-    //     globals: {
-    //       jQuery: true
-    //     }
-    //   }
-    // },
-    watch: {
-      files: ['<%= jshint.files %>'],
-      tasks: ['jshint']
-    },
+  require('load-grunt-tasks')(grunt);
 
+  grunt.initConfig({
+    jshint: {
+      files: ['Gruntfile.js', 'js/**/*.js'],
+      options: {
+        globals: {
+          jQuery: true
+        }
+      }
+
+    },
+    libsass: {
+        modern : {
+            dest: 'css/style.css',
+            src: 'sass/style.scss'
+        },
+        dataPng : {
+            dest: 'css/png.css',
+            src: 'sass/png.scss'
+        },
+        fallback : {
+            dest: 'css/fallback.css',
+            src: 'sass/fallback.scss'
+        }
+    },
+    watch: {
+      files: ['sass/**/*.scss'],
+      tasks: [ 'libsass']
+    },
     grunticon: {
         myIcons: {
             files: [{
@@ -32,10 +48,6 @@ module.exports = function(grunt) {
     }
   });
 
-  // grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-grunticon');
-
-    grunt.registerTask('default', ['jshint']);
+    grunt.registerTask('default', ['grunticon', 'libsass']);
 
 };
