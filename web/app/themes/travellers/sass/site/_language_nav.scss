@@ -1,6 +1,8 @@
 .current-lang
 {
-    position: fixed;
-    top: 0;
-    right: 0;
+    position:       fixed;
+    top:            40px;
+    right:          0;
+    z-index:        $z-aboveground + 1;
+    background-color:           $color-calltoaction;
 }

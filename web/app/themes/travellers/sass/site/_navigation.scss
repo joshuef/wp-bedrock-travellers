@@ -1,71 +1,88 @@
+
+//headers
 .banner-container
 {
     background-color:           $color-white;
     padding-top:                5px;
 
     //to allow nav on mobile sufficient space
-    min-height:     100px;
+    min-height:                 40px;
+    position:                   fixed;
+    top:                        0;
+    z-index:                    $z-foreground;
 
 }
 
 .banner
 {
-    position: fixed;
-    top: 0;
     // display: block;
     width: 100vw;
 
     background-color:           $color-header;
     color:                      $color-white;
-    a
+
+    .navbar-brand
     {
-        color:                      $color-white;
-        
+        margin-left:            70px;
+        color:                  $color-white;
+        @extend %Intro;
+        font-size: 8vw;    
     }
 }
 
 
-
-
-
-
-
-
-
-
-.main-navigation
+.main
 {
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 0;
-    left: 0;
-    overflow: visible;
-    position: relative;
-    z-index:            $z-page +1;
+    margin-top: 40px;
 }
 
 
+
+
+
+
+
+
+
+
+
+//nav over the page positioning
+.main-navigation
+{
+    position:               fixed;
+    left:                   0;
+    top:                    0;
+    height:                 0;
+    left:                   0;
+    overflow:               visible;
+    position:               relative;
+    z-index:                $z-aboveground +1;
+}
+
+//basic nav hidden
 .navbar 
 {
   
   /*Collapsed */
-    width:                  0; 
+    width:                  50%; 
     overflow:               hidden;
     position:               fixed;
     top:                    0;
-    left:                   0;
+    left:                   -50%;
     height:                 100%;
-    transition:             width 0.3s ease;
-    background-color:       gray;
+    transition:             all 0.3s ease;
+    background-color:       $color-white;
 
     &.open 
     {
         width:              50%; 
-        z-index:            $z-foreground;
+        left:               0;
+        z-index:            $z-aboveground;
     }
 }
 
+
+//mask overlay
 .nav-mask
 {
     display: none;
@@ -81,7 +98,7 @@
     &.open 
     {
         display: block;
-        z-index:        $z-foreground -1 ;
+        z-index:        $z-aboveground -1 ;
         opacity:        0.3;
         
 
@@ -91,36 +108,82 @@
 
 
 
-// //page container of fonz etc
-// .container
-// {
-//     width:      100%;
-//     float: right;
-//     position: relative;
-// }
 
 
+
+
+
+
+
+
+
+
+//menus
+.nav
+{
+    padding-left: 0;
+    margin-top: 0;
+    // text-align: center;
+}
+
+
+.nav__item
+{
+    display:                block;
+    list-style:             none;
+
+    background-color:       $color-menu;
+    margin-bottom:          5px;  
+
+    a
+    {
+        display:            block;
+        box-sizing:         border-box;
+        color:              $color-white;
+        @extend %Intro;
+        width:              100%;
+        padding-left:       30px;
+        padding-right:      30px;
+        padding-top:        10px;
+        padding-bottom:     10px;
+    }
+}
+
+
+
+
+// The toggler
 
 .navbar-toggle 
 {
-    width: 40px;
-    height: 40px;
-    line-height: 0px;
-    box-sizing: border-box;
-    position: absolute;
-
-    background-color: gray;
-
-    top: 5px;
-    left: 5px;
+    
+    display:            inline-block;
+    // width: 40px;
+    // height: 40px;
+    // line-height: 0px;
+    box-sizing:         border-box;
+    padding-top:        2px;
+    padding-bottom:     2px;
+    padding-left:       6px;
+    padding-right:      6px;
+    position:           relative;
+    left:               1vw;
+    margin-bottom:      0;
+    margin-top:         20px;
+    // position .: absolute;
+    // top: 5px;
+    // left: 5px;
 }
 
-// .burger-bar
-// {
-//     display: inline-block;
-//     width:      100%;
-//     background-color: $color-white;
-//     height: 3px;
-//     margin-bottom: 3px;
+.burger__bar
+{
+    width:              29px;
+    display:            block;
+    margin:             7px auto;
+    // margin-bottom:      7px;
+    height:             3px;
+    border-radius:      3px;
+    background-color:   $color-white;
+}
 
-// }
+

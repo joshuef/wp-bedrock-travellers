@@ -1,6 +1,7 @@
 body:after
 {
-    content: 'shrimp';
+    content:        'shrimp';
+    display:        none;
 
     @include breakpoint(S) 
     {

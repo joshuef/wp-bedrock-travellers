@@ -108,29 +108,32 @@ var Travellers = {
         {
             //check via our css media queries, the screen size.
 
-            var menus = $( '.js-navbar-toggle' );
+            var toggles = $( '.js-navbar-toggle' );
             var mask = $( '.js-nav-mask' );
+            var menus = $( '.js-navbar' );
 
             mask.click( function( e )
             {   
+                console.log( 'masking itt' );
                 mask.removeClass( 'open' );
-                menus.data( 'target').removeClass( 'open' );
+                menus.removeClass( 'open' );
             })
 
-            $.each( menus, function eachMenu( i, menu )
+            $.each( toggles, function eachMenu( i, toggle )
             {
                 var targetMenu;
 
-                if( !menu.jquery )
+                if( !toggle.jquery )
                 {
-                    menu = $( menu );
-                    menu.data( 'target', $( menu.data( 'target' ) ) );
+                    toggle = $( toggle );
+                    toggle.data( 'target', $( toggle.data( 'target' ) ) );
                 }
 
 
-                menu.bind( 'click', function( e )
+                toggle.bind( 'click', function( e )
                 {
-                    menu.data( 'target').toggleClass( 'open' );
+                    toggle.data( 'target' ).toggleClass( 'open' );
+                    toggle.data( 'target' ).siblings().removeClass( 'open' );
                     mask.toggleClass( 'open' );
                 });
 
@@ -144,7 +147,6 @@ var Travellers = {
          */
         makeCurrentLanguageAToggler : function ( )
         {
-            console.log( 'LANGUAGEtoggllrrr' );
             var current = $( '.current-lang' );
             
             current.data( 'target', $( '.js-navbar--languages' ) ) ;
@@ -153,7 +155,6 @@ var Travellers = {
             current.click( function(e)
             { 
                 e.preventDefault(); 
-                console.log( current.data('target') );
             });
 
         }

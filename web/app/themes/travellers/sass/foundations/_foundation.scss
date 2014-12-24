@@ -34,10 +34,26 @@ a
 {
     position:               relative;
     z-index:                $z-page;
-
+    background-color:       $color-pagebg;
+    box-sizing:             border-box;
+    
     a
     {
         color:                      $color-link;
 
     }
+    
+    .copy
+    {
+        box-sizing: border-box;
+        padding:        5vw;
+    }
+}
+
+.main__the-page
+{
+    position:               relative;
+    z-index:                $z-page;
+    background-color:       $color-pagebg;
+    box-sizing:             border-box;
 }
