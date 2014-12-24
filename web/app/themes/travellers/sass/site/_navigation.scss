@@ -157,8 +157,13 @@
 {
   
   /*Collapsed */
-    min-width:              200px; 
-    width:                  25vw;
+    max-width:              250px;
+
+   @include breakpoint(M) {
+    max-width:          25vw;
+   } 
+
+    // width:                  ;
     overflow:               hidden;
     position:               fixed;
     top:                    0;
