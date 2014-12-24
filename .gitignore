@@ -23,6 +23,10 @@ web/app/uploads/*
 !web/app/mu-plugins/register-theme-directory.php
 !web/app/mu-plugins/bedrock-autoloader.php
 
+# Generated Styles
+web/app/themes/travellers/css/*.css
+web/app/themes/travellers/css/*.css.map
+
 # Vendor (e.g. Composer)
 vendor/*
 !vendor/.gitkeep

@@ -20,6 +20,13 @@
 // rename this variable, you will also need to rename the namespace below.
 var Travellers = {
   // All pages
+  // 
+  // TODO Extract this js. for defaults
+  // 
+  // make a responsive way to load svgs... are they already there?
+  // probs
+  // 
+  // 
     common: {
         fonz: {}, //smoothstate
         fishSize: '',

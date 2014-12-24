@@ -28,6 +28,12 @@
         @extend %Intro;
         font-size:              32px;  
         vertical-align:         middle;  
+        letter-spacing:         5px;
+
+           @include breakpoint(M) {
+            
+            // font-size: 48px;
+          }
     }
 }
 
