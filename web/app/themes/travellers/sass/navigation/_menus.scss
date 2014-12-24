@@ -1,0 +1,206 @@
+
+
+
+// NAVBAR SLIDE FUNCTIONS
+// 
+
+
+html.navbar-open
+{
+    height:                 100%;
+    overflow:               hidden;
+    display:                block;
+}
+
+//nav over the page positioning
+.main-navigation
+{
+    // position:               fixed;
+    // left:                   0;
+    // top:                    0;
+    // height:                 0;
+    // left:                   0;
+    // overflow:               visible;
+    // position:               relative;
+    // z-index:                $z-aboveground + 1;
+
+    @include breakpoint( M ) 
+    {
+        position: relative;
+        height:auto;
+    }
+}
+
+
+
+
+
+
+
+
+
+//basic nav hidden contains all other navs
+.navbar 
+{
+  
+    /*Collapsed */
+    max-width:              250px;
+
+    @include breakpoint(M) 
+    {
+        max-width:          100%;
+        position:           relative;
+        left:               auto;
+        z-index:            $z-aboveground;
+        // overflow:           visible;
+        height:             auto;
+        line-height:        1.2em;
+    } 
+
+    // width:                  ;
+    overflow:               hidden;
+    position:               fixed;
+    top:                    0;
+    left:                   -100%;
+    height:                 100%;
+    transition:             all 0.3s ease;
+    background-color:       $color-white;
+
+    &.open 
+    {
+        // width:              50%; 
+        left:               0;
+        z-index:            $z-aboveground;
+        overflow-y:         scroll;
+    }
+}
+
+
+//mask overlay
+.nav-mask
+{
+    display: none;
+    width:          100%;
+    height:         100vh;
+    position:       fixed;
+    background-color: #000;
+    top:            0;
+    left:           0;
+    z-index:        $z-hell;
+    opacity:        0;
+
+    &.open 
+    {
+        display:        block;
+        z-index:        $z-aboveground - 1;
+        opacity:        0.3;
+        
+
+    }
+}
+
+
+
+
+
+
+//menus individually
+.navbar__nav
+{
+    padding-left: 0;
+    margin-top: 0;
+    // textalign: center;
+    // 
+    @include breakpoint(M) 
+    {
+        background-color: $color-white;
+    }
+}
+
+
+.nav__item
+{
+    display:                block;
+    list-style:             none;
+
+    background-color:       $color-menu;
+    margin-bottom:          5px;  
+
+
+    @include breakpoint(M) 
+    {
+        display: inline-block;
+    }
+
+    a
+    {
+        display:            block;
+        box-sizing:         borderbox;
+        color:              $color-white;
+        @extend %Intro;
+        width:              100%;
+        padding-left:       30px;
+        padding-right:      30px;
+        padding-top:        10px;
+        padding-bottom:     10px;
+    }
+}
+
+
+
+
+//main menu
+.navbar--main
+{
+    @include breakpoint(M) 
+    {
+        position: relative;
+        top: 6vh;
+        // right: 0;
+    }
+}
+
+
+
+
+// languages menu
+
+.navbar--languages__ul 
+{
+    @include breakpoint(M) 
+    {
+        position: fixed;
+        top: 0;
+        right: 0;
+    }
+    
+    .lang-item
+    { 
+        background-color:           $color-calltoaction;
+    }
+}
+
+
+
+
+.navbar--contact__ul .nav__item
+{ 
+    background-color:           $color-white;
+    @include breakpoint(M) {
+            display: none;
+    }
+
+    a
+    {
+        color:                      $color-blue;
+        
+        .navbar--contact__title
+        {
+            color:                      $color-headercopy;
+        }
+    }
+}
+
+
+
+

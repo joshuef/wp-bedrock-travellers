@@ -1,0 +1,34 @@
+
+//headers
+.banner-container
+{
+    background-color:           $color-white;
+    padding-top:                5px;
+
+    //to allow nav on mobile sufficient space
+    min-height:                 40px;
+    position:                   fixed;
+    top:                        0;
+    z-index:                    $z-foreground;
+
+}
+
+.banner
+{
+    // display: block;
+    width: 100vw;
+
+    background-color:           $color-header;
+    color:                      $color-white;
+
+    .navbar-brand
+    {
+        margin-left:            20px;
+        color:                  $color-white;
+        @extend %Intro;
+        font-size:              32px;  
+        vertical-align:         middle;  
+    }
+}
+
+

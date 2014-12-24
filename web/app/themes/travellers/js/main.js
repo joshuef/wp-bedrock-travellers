@@ -22,6 +22,7 @@ var Travellers = {
   // All pages
     common: {
         fonz: {}, //smoothstate
+        fishSize: '',
         init: function() 
         {
         // JavaScript to be fired on all pages
@@ -39,11 +40,13 @@ var Travellers = {
             // this.makeNavigationSmooth( $( '.js-site-nav') );
 
 
+            self.hideSrollbaronSmallerScreens();
 
             //To be run only on certain fishsizes
             $( document ).ready( function()
             {
-                var fishSize = window.getComputedStyle( document.body,':after' ).getPropertyValue( 'content' );
+                self.fishSize = window.getComputedStyle( document.body,':after' ).getPropertyValue( 'content' );
+                fishSize = self.fishSize;
                 console.log( fishSize );
 
                 if( fishSize === 'shrimp' || fishSize === 'tuna' )
@@ -58,6 +61,13 @@ var Travellers = {
                 
             })
         },
+
+        hideSrollbaronSmallerScreens : function ( )
+        {
+            console.log( 'HIDING' );
+         
+        },
+
         /*
             Make Navigation Smooth
 
@@ -212,5 +222,13 @@ var UTIL = {
 
 $(document).ready(UTIL.loadEvents);
 
+
 })(jQuery); // Fully reference jQuery after this point.
 
+function hideAddressBar(){
+  if(document.documentElement.scrollHeight<window.outerHeight/window.devicePixelRatio)
+    document.documentElement.style.height=(window.outerHeight/window.devicePixelRatio)+'px';
+  setTimeout(window.scrollTo(1,1),0);
+}
+window.addEventListener("load",function(){hideAddressBar();});
+window.addEventListener("orientationchange",function(){hideAddressBar();});

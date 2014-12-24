@@ -1,0 +1,52 @@
+// The toggler
+
+.navbar-toggle 
+{
+    
+    display:                inline-block;
+    box-sizing:             border-box;
+    padding-top:            2px;
+    padding-bottom:         2px;
+    padding-left:           6px;
+    padding-right:          6px;
+    position:               relative;
+    left:                   1vw;
+    margin-top:             10px;
+    margin-bottom:          10px;
+    vertical-align:         middle;  
+    background-color:       $color-menu;
+
+    @include breakpoint(M) 
+    {
+        // max-width:          25vw;
+        display: none;
+        // position: relative;
+        // left:   auto;
+        // z-index:            $z-aboveground;
+    } 
+}
+
+.burger__bar
+{
+    width:              29px;
+    display:            block;
+    margin:             7px auto;
+    // margin-bottom:      7px;
+    height:             3px;
+    border-radius:      3px;
+    background-color:   $color-white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
