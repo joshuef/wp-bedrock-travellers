@@ -52,6 +52,9 @@ var Travellers = {
                     self.bindNavMenusToSide();
 
                 }
+
+
+                self.wrapContactLinkTitle();
                 
             })
         },
@@ -139,6 +142,36 @@ var Travellers = {
 
 
             });
+        },
+
+        /**
+         * Wrap Contact Link Title
+         *
+         * Wraps the title in span with a class for styling the title
+         * as non - linky
+         */
+        wrapContactLinkTitle : function ( )
+        {
+            var contacts = $( '.navbar--contact__ul .js-site-nav' );
+
+            if( contacts.length > 0 )
+            {
+                $.each( contacts, function( i, contact )
+                {
+                    var link = $( contact ).children( 'a' );
+                    var linkHtml = link.html();
+
+                    var textArray = linkHtml.split( ":" );
+
+                    newText = '<span class="navbar--contact__title">' + textArray[0] +
+                        ':</span>' + textArray[1];
+
+                    // console.log(  );
+                    link.html( newText );
+
+                } );
+                
+            }
         },
 
         /**

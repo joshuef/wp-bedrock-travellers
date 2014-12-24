@@ -217,6 +217,21 @@
     background-color:           $color-calltoaction;
 }
 
+.navbar--contact__ul .nav__item
+{ 
+    background-color:           $color-white;
+    
+    a
+    {
+        color:                      $color-blue;
+        
+        .navbar--contact__title
+        {
+            color:                      $color-headercopy;
+        }
+    }
+}
+
 
 
 
