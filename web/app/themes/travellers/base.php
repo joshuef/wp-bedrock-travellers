@@ -17,6 +17,10 @@
         <div class="content row  scene_element scene_element--fadein">
 
             <main class="main" role="main">
+            <?php 
+                global $post;
+                setup_postdata( $post ); 
+            ?>
                 <?php include roots_template_path(); ?>
             </main><!-- /.main -->
 

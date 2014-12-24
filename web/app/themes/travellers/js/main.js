@@ -48,7 +48,7 @@ var Travellers = {
 
                 if( fishSize === 'shrimp' || fishSize === 'tuna' )
                 {
-                    self.makeCurrentLanguageAToggler();
+                    // self.makeCurrentLanguageAToggler();
                     self.bindNavMenusToSide();
 
                 }
@@ -120,6 +120,7 @@ var Travellers = {
                 console.log( 'masking itt' );
                 mask.removeClass( 'open' );
                 menus.removeClass( 'open' );
+                $( 'html' ).removeClass( 'navbar-open')
             })
 
             $.each( toggles, function eachMenu( i, toggle )
@@ -136,6 +137,7 @@ var Travellers = {
                 toggle.bind( 'click', function( e )
                 {
                     toggle.data( 'target' ).toggleClass( 'open' );
+                    $( 'html' ).toggleClass( 'navbar-open')
                     toggle.data( 'target' ).siblings().removeClass( 'open' );
                     mask.toggleClass( 'open' );
                 });
@@ -174,23 +176,6 @@ var Travellers = {
             }
         },
 
-        /**
-         * Sets up the current language to be a toggler for a full language
-         * menu. (Normally triggered only on smaller screens )
-         */
-        makeCurrentLanguageAToggler : function ( )
-        {
-            var current = $( '.current-lang' );
-            
-            current.data( 'target', $( '.js-navbar--languages' ) ) ;
-            current.addClass( 'js-navbar-toggle' );
-
-            current.click( function(e)
-            { 
-                e.preventDefault(); 
-            });
-
-        }
     },
   // Home page
   home: {
