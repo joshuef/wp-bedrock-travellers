@@ -28,7 +28,7 @@ add_filter( 'cmb2_meta_boxes', 'travellers_metaboxes' );
 function travellers_metaboxes( array $meta_boxes ) {
 
 	// Start with an underscore to hide fields from custom fields list
-	$prefix = '_cmb2_';
+	$prefix = '_trv_';
 	$meta_boxes['page_extras'] = array(
 		'id'            => 'page_extras',
 		'title'         => __( 'Page Extras', 'trv' ),
