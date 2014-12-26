@@ -22,6 +22,8 @@ $roots_includes = array(
 	// 'lib/gallery.php',         // Custom [gallery] modifications
 	'lib/scripts.php',         // Scripts and stylesheets
 	'lib/relative-links.php',         // Make all links relative for dev / BrowserSync
+	'CMB2/init.php',         // Custom meta boxes https://github.com/WebDevStudios/CMB2
+	'lib/page__metaboxes.php',         // Custom meta boxes https://github.com/WebDevStudios/CMB2
 	// 'lib/extras.php',          // Custom functions
 	);
 
