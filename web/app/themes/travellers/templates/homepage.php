@@ -30,8 +30,7 @@ Template Name: Home Page
 
             <?php while ( $all_vines->have_posts() ) : $all_vines->the_post(); ?>
                 <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID) ); ?>
-                <div  class="homepage__vine js-vine__thumb" data-vine='<?php _e( wp_get_attachment_image_src( '98', 'medium', true)[0] );  ?>'></div>
-
+                <div  class="homepage__vine js-vine__thumb" data-vine-link="<?php _e( get_the_content() ); ?>" data-vine='<?php _e( wp_get_attachment_image_src( '98', 'medium', true)[0] );  ?>'></div>
             <?php endwhile; ?>
 
         <?php endif; wp_reset_query(); ?>

@@ -99,9 +99,22 @@ var Travellers = {
             {
                 var $vine = $( vine );
                 var $vineImg = $( vine ).data( 'vine' );
+                var $vineLink = $vine.data( 'vineLink' );
 
-                $vine.append( "<img src='" + $vineImg + "' />" );
+                if( !$vineLink )
+                {
+                    $vineLink = $vine;
+                }
+                else
+                {
+                    $vineLink = $( '<a href="'+ $vineLink +'" target="_blank"></a>' );
+                    $vine.append( $vineLink );
+                }
 
+
+
+                $vineLink.append( "<img src='" + $vineImg + "' />" );
+                //todo parse the link for href as well
 
             });
         },
