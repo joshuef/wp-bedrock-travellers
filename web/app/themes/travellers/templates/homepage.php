@@ -13,7 +13,29 @@ Template Name: Home Page
     <div class="copy">
         <h2><?php the_title(); ?></h2>
         <?php the_content(); ?>
-        
+        <div class="homepage__vine">
+        <?php
+
+            $vines = array(
+                'posts_per_page' => 4,
+                'post_type'        => 'post',
+                'post_status'      => 'publish',
+                'category_name' => 'vines'
+            );
+
+
+            $all_vines = new WP_Query( $vines );
+
+           if ( $all_vines->have_posts() ) : ?>
+
+            <?php while ( $all_vines->have_posts() ) : $all_vines->the_post(); ?>
+                <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID) ); ?>
+                <div  class="homepage__vine js-vine__thumb" data-vine='<?php _e( wp_get_attachment_image_src( '98', 'medium', true)[0] );  ?>'></div>
+
+            <?php endwhile; ?>
+
+        <?php endif; wp_reset_query(); ?>
+        </div>
         <div class="homepage__sections">
             <?php
             global $post;

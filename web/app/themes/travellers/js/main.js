@@ -69,6 +69,11 @@ var Travellers = {
                     self.bindNavMenusToSide();
 
                 }
+                else
+                {
+                  //we're larger so...
+                  self.showVines();
+                }
 
 
                 self.wrapContactLinkTitle();
@@ -80,6 +85,25 @@ var Travellers = {
         {
             console.log( 'HIDING' );
          
+        },
+
+        /**
+         * Shows the vines via loading data-vine and appending an img
+         */
+        showVines : function ( )
+        {
+
+            var $vines = $( '.js-vine__thumb' );
+
+            $.each( $vines, function( i, vine )
+            {
+                var $vine = $( vine );
+                var $vineImg = $( vine ).data( 'vine' );
+
+                $vine.append( "<img src='" + $vineImg + "' />" );
+
+
+            });
         },
 
         /*
