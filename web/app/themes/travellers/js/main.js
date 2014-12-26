@@ -27,6 +27,13 @@ var Travellers = {
   // probs
   // 
   // 
+  // make options for address etc. or maybe its another widget??
+  // 
+  // add in subpages
+  // 
+  // add in vine
+  // 
+  // 
     common: {
         fonz: {}, //smoothstate
         fishSize: '',

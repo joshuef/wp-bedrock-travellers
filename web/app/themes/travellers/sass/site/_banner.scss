@@ -26,15 +26,44 @@
         margin-left:            20px;
         color:                  $color-white;
         @extend %Intro;
-        font-size:              32px;  
+        font-size:              24px;  
         vertical-align:         middle;  
         letter-spacing:         5px;
 
-           @include breakpoint(M) {
+        @include breakpoint(M) 
+        {
             
-            // font-size: 48px;
-          }
+            margin-left:            0;
+            font-size:              32px;
+        }
     }
 }
 
 
+
+.logo
+{
+    display: none;
+
+    @include breakpoint(M ) 
+    {
+        display:                inline-block;
+        width:                  100px;
+        height:                 100px;
+        vertical-align:         middle;
+    }
+}
+
+
+.suitcases
+{
+    display: none;
+
+       @include breakpoint(M) 
+       {
+            vertical-align:             middle;
+            display:                    inline-block;
+            width:                      150px;
+            height:                     150px;
+      }
+}

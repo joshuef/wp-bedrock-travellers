@@ -6,7 +6,15 @@
 			<span class="burger__bar"></span>
 			<span class="burger__bar"></span>
 		</div>
-		<a class="navbar-brand js-site-nav" href="<?php echo esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
+		<div class="suitcases icon-cases">
+			<!-- DnG baby -->
+		</div>
+		<a class="navbar-brand js-site-nav" href="<?php echo esc_url(home_url('/')); ?>">
+			<div class="icon-t  logo">
+				<!-- logooooo -->
+			</div>
+			<?php bloginfo('name'); ?>
+		</a>
 	</div>
 
 	<div class="main-navigation">
