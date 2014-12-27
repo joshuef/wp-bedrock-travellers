@@ -14,26 +14,29 @@
 
     <div class="wrap container" role="document">
         <div id="main-content" class="fonz-box scene_element scene_element--fadein">
-        <div class="content row  scene_element scene_element--fadein">
+            <div class="content row  scene_element scene_element--fadein">
+                <div class="booking-bar">
+                    <!--[if IE]> <iframe src="https://widget.maxbooking.com/index.php?id=2825" width="180" height="150" frameborder="0" scrolling="no"> <p><a href="https://book.maxbooking.com/index.php?id=2825">Book now</a></p> </iframe> <![endif]--> <!--[if !IE]><!--> <object type="text/html" data="https://widget.maxbooking.com/index.php?id=2825" style="width:180px;height:150px;margin:0;padding:0;overflow:hidden;"> <p><a href="https://book.maxbooking.com/index.php?id=2825">Book now</a></p> </object> <!--<![endif]--> 
+                </div>
+                <main class="main" role="main">
+                <?php 
+                    global $post;
+                    setup_postdata( $post ); 
+                ?>
+                    <?php include roots_template_path(); ?>
+                </main><!-- /.main -->
 
-            <main class="main" role="main">
-            <?php 
-                global $post;
-                setup_postdata( $post ); 
-            ?>
-                <?php include roots_template_path(); ?>
-            </main><!-- /.main -->
+                <?php //REMOVED FOR NOW ?>
+                <?php if ( false ) ://(roots_display_sidebar()) : ?>
+                     <aside class="sidebar" role="complementary">
+                        <?php include roots_sidebar_path(); ?>
+                    </aside><!-- /.sidebar -->
+                <?php endif; ?>
+            </div><!-- /.content -->
+            <?php get_template_part('templates/footer'); ?>
 
-            <?php //REMOVED FOR NOW ?>
-            <?php if ( false ) ://(roots_display_sidebar()) : ?>
-                 <aside class="sidebar" role="complementary">
-                    <?php include roots_sidebar_path(); ?>
-                </aside><!-- /.sidebar -->
-            <?php endif; ?>
-        </div><!-- /.content -->
-        <?php get_template_part('templates/footer'); ?>
-
-        <?php wp_footer(); ?>
+            <?php wp_footer(); ?>
+        </div><!-- /.main-content -->
     </div><!-- /.wrap -->
 
 

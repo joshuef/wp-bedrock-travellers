@@ -10,7 +10,11 @@
     position:                   fixed;
     top:                        0;
     z-index:                    $z-foreground;
-
+    
+    @include breakpoint(M) 
+    {
+        position:               relative;
+    }
 }
 
 .banner

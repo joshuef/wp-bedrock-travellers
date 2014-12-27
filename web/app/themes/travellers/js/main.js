@@ -59,26 +59,37 @@ var Travellers = {
             //To be run only on certain fishsizes
             $( document ).ready( function()
             {
-                self.fishSize = window.getComputedStyle( document.body,':after' ).getPropertyValue( 'content' );
-                fishSize = self.fishSize;
-                console.log( fishSize );
-
-                if( fishSize === 'shrimp' || fishSize === 'tuna' )
-                {
-                    // self.makeCurrentLanguageAToggler();
-                    self.bindNavMenusToSide();
-
-                }
-                else
-                {
-                  //we're larger so...
-                  self.showVines();
-                }
-
+   
+                self.onWindowReadyLets();
 
                 self.wrapContactLinkTitle();
                 
-            })
+            });
+
+            $( window ).resize( function( )
+            {
+                self.onWindowReadyLets();
+            });
+        },
+
+        onWindowReadyLets : function( )
+        {
+            var self = this;
+            self.fishSize = window.getComputedStyle( document.body,':after' ).getPropertyValue( 'content' );
+            fishSize = self.fishSize;
+            console.log( fishSize );
+
+            if( fishSize === 'shrimp' || fishSize === 'tuna' )
+            {
+                // self.makeCurrentLanguageAToggler();
+                self.bindNavMenusToSide();
+
+            }
+            else
+            {
+              //we're larger so...
+              self.showVines();
+            }
         },
 
         hideSrollbaronSmallerScreens : function ( )
@@ -152,7 +163,7 @@ var Travellers = {
                 e.preventDefault();
                 var target = $( e.target );
                 var href    = target.prop( 'href' );
-                console.log( href );
+
                 if( typeof href !== 'undefined' )
                 {
                     // self.fonz.load( href );
@@ -172,12 +183,21 @@ var Travellers = {
         {
             //check via our css media queries, the screen size.
 
-            var toggles = $( '.js-navbar-toggle' );
-            var mask = $( '.js-nav-mask' );
-            var menus = $( '.js-navbar' );
+            var toggles     = $( '.js-navbar-toggle' );
+            var mask        = $( '.js-nav-mask' );
+            var menus       = $( '.js-navbar' );
+
+            var contactToggle = $( '.js-navbar a[title="contact"]');
+
+            // gets a link with title contact and makes it a toggle
+            if( contactToggle )
+            {
+                contactToggle.data( 'target', $( '.js-navbar--contact' )  )
+                toggles.push( contactToggle );
+            }
 
             mask.click( function( e )
-            {   
+            {                   
                 console.log( 'masking itt' );
                 mask.removeClass( 'open' );
                 menus.removeClass( 'open' );
@@ -197,6 +217,7 @@ var Travellers = {
 
                 toggle.bind( 'click', function( e )
                 {
+                    e.preventDefault();
                     toggle.data( 'target' ).toggleClass( 'open' );
                     $( 'html' ).toggleClass( 'navbar-open')
                     toggle.data( 'target' ).siblings().removeClass( 'open' );

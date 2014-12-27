@@ -8,7 +8,6 @@
 html.navbar-open
 {
     height:                 100%;
-    overflow:               hidden;
     display:                block;
 }
 
@@ -71,8 +70,8 @@ html.navbar-open
     &.open 
     {
         // width:              50%; 
-        left:               0;
-        z-index:            $z-aboveground;
+        left:                   0;
+        z-index:                $z-aboveground;
         // overflow-y:         scroll;
     }
 }
@@ -138,7 +137,7 @@ html.navbar-open
     a
     {
         display:            block;
-        box-sizing:         borderbox;
+        box-sizing:         border-box;
         color:              $color-white;
         @extend %Intro;
         width:              100%;
