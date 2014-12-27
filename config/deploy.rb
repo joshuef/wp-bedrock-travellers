@@ -1,5 +1,5 @@
-set :application, 'my_app_name'
-set :repo_url, 'git@example.com:me/my_repo.git'
+set :application, 'travellers_inn_wp'
+set :repo_url, 'https://github.com/joshuef/wp-bedrock-travellers'
 
 # Branch options
 # Prompts for the branch name (defaults to current branch)
@@ -9,7 +9,9 @@ set :repo_url, 'git@example.com:me/my_repo.git'
 # This could be overridden in a stage config file
 set :branch, :master
 
-set :deploy_to, -> { "/srv/www/#{fetch(:application)}" }
+set :tmp_dir, '/home/fidget/tmp'
+
+set :deploy_to, -> { "/home/fidget/webapps/alpha_travellers/#{fetch(:application)}" }
 
 # Use :debug for more verbose output when troubleshooting
 set :log_level, :info
@@ -29,6 +31,8 @@ namespace :deploy do
     end
   end
 end
+
+capture("#{deploy_to}/bin/restart")
 
 # The above restart task is not run by default
 # Uncomment the following line to run it on deploys if needed
