@@ -1,9 +1,27 @@
+$barWidth : 200px;
+
+.booking-bar
+{
+    display: none;
+    vertical-align: top;
+    @include breakpoint( M )
+    {
+        display: inline-block;
+        width: $barWidth;
+    }
+}
+
 
 .main
 {
     margin-top: 40px;
+
     @include breakpoint( M ) 
     {
+        margin-top: 0;
+        vertical-align: top;
+        display: inline-block;
+        width: calc( 100% - 205px );
         // margin-top: 0;
     }
 }

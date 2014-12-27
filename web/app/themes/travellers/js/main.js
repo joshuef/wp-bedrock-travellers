@@ -20,23 +20,10 @@
 // rename this variable, you will also need to rename the namespace below.
 var Travellers = {
   // All pages
-  // 
-  // TODO Extract this js. for defaults
-  // 
-  // make a responsive way to load svgs... are they already there?
-  // probs
-  // 
-  // 
-  // make options for address etc. or maybe its another widget??
-  // 
-  // add in subpages
-  // 
-  // add in vine
-  // 
-  // 
     common: {
         fonz: {}, //smoothstate
-        fishSize: '',
+        fishSize: '', //screen size from body:after
+        vinesShown : false, //are the vines shown?
         init: function() 
         {
         // JavaScript to be fired on all pages
@@ -103,31 +90,35 @@ var Travellers = {
          */
         showVines : function ( )
         {
-
-            var $vines = $( '.js-vine__thumb' );
-
-            $.each( $vines, function( i, vine )
+            if( ! this.vinesShown )
             {
-                var $vine = $( vine );
-                var $vineImg = $( vine ).data( 'vine' );
-                var $vineLink = $vine.data( 'vineLink' );
+                var $vines = $( '.js-vine__thumb' );
 
-                if( !$vineLink )
+                $.each( $vines, function( i, vine )
                 {
-                    $vineLink = $vine;
-                }
-                else
-                {
-                    $vineLink = $( '<a href="'+ $vineLink +'" target="_blank"></a>' );
-                    $vine.append( $vineLink );
-                }
+                    var $vine = $( vine );
+                    var $vineImg = $( vine ).data( 'vine' );
+                    var $vineLink = $vine.data( 'vineLink' );
+
+                    if( !$vineLink )
+                    {
+                        $vineLink = $vine;
+                    }
+                    else
+                    {
+                        $vineLink = $( '<a href="'+ $vineLink +'" target="_blank"></a>' );
+                        $vine.append( $vineLink );
+                    }
 
 
 
-                $vineLink.append( "<img src='" + $vineImg + "' />" );
-                //todo parse the link for href as well
+                    $vineLink.append( "<img src='" + $vineImg + "' />" );
+                    //todo parse the link for href as well
 
-            });
+                });
+                
+                this.vinesShown = true;
+            }
         },
 
         /*
@@ -194,6 +185,9 @@ var Travellers = {
             {
                 contactToggle.data( 'target', $( '.js-navbar--contact' )  )
                 toggles.push( contactToggle );
+
+                //to hide it on larger screens via css
+                contactToggle.addClass( 'contact-toggle' );
             }
 
             mask.click( function( e )

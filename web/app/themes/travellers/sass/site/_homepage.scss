@@ -1,0 +1,14 @@
+.homepage__sections
+{
+    @extend .copy;
+}
+
+//each vine
+.homepage__vines
+{
+    font-size: 0; //stop margin gap
+}
+.homepage__vine
+{
+    display: inline-block;
+}

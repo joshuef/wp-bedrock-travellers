@@ -25,6 +25,9 @@
 				wp_nav_menu(array('theme_location' => 'primary_navigation', 'menu_class' => 'navbar__nav navbar--main'));
 			endif;
 			?>
+			<div class="main-nav__maxbooking">
+				<?php include( 'maxbooking__include.php'); ?>
+			</div>
 			<?php
 			if (has_nav_menu('language_navigation')) :
 				wp_nav_menu(array('theme_location' => 'language_navigation', 'menu_class' => 'navbar__nav navbar--languages__ul'));
@@ -39,8 +42,6 @@
 			?>
 		</nav>  
 		
-		 <!--[if IE]> <iframe src="https://widget.maxbooking.com/index.php?id=2825" width="180" height="150" frameborder="0" scrolling="no"> <p><a href="https://book.maxbooking.com/index.php?id=2825">Book now</a></p> </iframe> <![endif]--> <!--[if !IE]><!--> <object type="text/html" data="https://widget.maxbooking.com/index.php?id=2825" style="width:180px;height:150px;margin:0;padding:0;overflow:hidden;"> <p><a href="https://book.maxbooking.com/index.php?id=2825">Book now</a></p> </object> <!--<![endif]--> 
-
 		<div class="nav-mask  js-nav-mask"></div>
 
 	</div>

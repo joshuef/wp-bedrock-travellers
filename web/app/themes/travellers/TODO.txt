@@ -1,3 +1,14 @@
 TODO:
 
-1. add options for phone number and contact info etc
+  // 
+  // TODO Extract this js. for defaults
+  // 
+  // make a responsive way to load svgs... are they already there?
+  // probs
+  // 
+  // 
+  // make options for address etc. or maybe its another widget??
+  // 
+  // 
+  // include booking thing only once and use js to duplicate it to reduce requests
+  // 

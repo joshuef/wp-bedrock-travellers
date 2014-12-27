@@ -13,63 +13,63 @@ Template Name: Home Page
     <div class="copy">
         <h2><?php the_title(); ?></h2>
         <?php the_content(); ?>
-        <div class="homepage__vine">
+    </div>
+    <div class="homepage__vines">
+    <?php
+
+        $vines = array(
+            'posts_per_page' => 4,
+            'post_type'        => 'post',
+            'post_status'      => 'publish',
+            'category_name' => 'vines'
+        );
+
+
+        $all_vines = new WP_Query( $vines );
+
+       if ( $all_vines->have_posts() ) : ?>
+
+        <?php while ( $all_vines->have_posts() ) : $all_vines->the_post(); ?>
+            <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'medium' ); ?>
+            <div  class="homepage__vine js-vine__thumb" data-vine-link="<?php _e( get_the_content() ); ?>" data-vine='<?php _e( $thumb[0] );  ?>'></div>
+        <?php endwhile; ?>
+
+    <?php endif; wp_reset_query(); ?>
+    </div>
+    <div class="homepage__sections">
         <?php
+        global $post;
 
-            $vines = array(
-                'posts_per_page' => 4,
-                'post_type'        => 'post',
-                'post_status'      => 'publish',
-                'category_name' => 'vines'
-            );
+        $args = array(
+            'post_type'      => 'page',
+            'posts_per_page' => -1,
+            'post_parent'    => $post->ID,
+            'order'          => 'ASC',
+            'orderby'        => 'menu_order'
+         );
 
 
-            $all_vines = new WP_Query( $vines );
+        $sections = new WP_Query( $args );
 
-           if ( $all_vines->have_posts() ) : ?>
+        if ( $sections->have_posts() ) : ?>
 
-            <?php while ( $all_vines->have_posts() ) : $all_vines->the_post(); ?>
-                <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID) ); ?>
-                <div  class="homepage__vine js-vine__thumb" data-vine-link="<?php _e( get_the_content() ); ?>" data-vine='<?php _e( wp_get_attachment_image_src( '98', 'medium', true)[0] );  ?>'></div>
+            <?php while ( $sections->have_posts() ) : $sections->the_post(); ?>
+
+                <div id="parent-<?php the_ID(); ?>" class="homepage__section">
+                    <?php
+                        // Grab the metadata from the database
+                        $icon = get_post_meta( get_the_ID(), '_trv_icon', true ); ?>
+                    <div class="<?php _e( $icon ) ?>"></div>
+                    <h3><?php the_title(); ?></h1>
+
+                    <?php the_content(); ?>
+
+                </div>
+
             <?php endwhile; ?>
 
         <?php endif; wp_reset_query(); ?>
-        </div>
-        <div class="homepage__sections">
-            <?php
-            global $post;
-
-            $args = array(
-                'post_type'      => 'page',
-                'posts_per_page' => -1,
-                'post_parent'    => $post->ID,
-                'order'          => 'ASC',
-                'orderby'        => 'menu_order'
-             );
-
-
-            $sections = new WP_Query( $args );
-
-            if ( $sections->have_posts() ) : ?>
-
-                <?php while ( $sections->have_posts() ) : $sections->the_post(); ?>
-
-                    <div id="parent-<?php the_ID(); ?>" class="homepage__section">
-                        <?php
-                            // Grab the metadata from the database
-                            $icon = get_post_meta( get_the_ID(), '_trv_icon', true ); ?>
-                        <div class="<?php _e( $icon ) ?>"></div>
-                        <h3><?php the_title(); ?></h1>
-
-                        <?php the_content(); ?>
-
-                    </div>
-
-                <?php endwhile; ?>
-
-            <?php endif; wp_reset_query(); ?>
-            
-        </div>
+        
     </div>
     
 </div>

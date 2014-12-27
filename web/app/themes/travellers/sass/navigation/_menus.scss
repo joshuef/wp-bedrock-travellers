@@ -14,14 +14,6 @@ html.navbar-open
 //nav over the page positioning
 .main-navigation
 {
-    // position:               fixed;
-    // left:                   0;
-    // top:                    0;
-    // height:                 0;
-    // left:                   0;
-    // overflow:               visible;
-    // position:               relative;
-    // z-index:                $z-aboveground + 1;
 
     @include breakpoint( M ) 
     {
@@ -152,7 +144,7 @@ html.navbar-open
 
 
 //main menu
-.navbar--main
+.navbar--main   
 {
     @include breakpoint(M) 
     {
@@ -162,6 +154,14 @@ html.navbar-open
     }
 }
 
+
+//max booking in nav bar
+.main-nav__maxbooking
+{
+       @include breakpoint(M) {
+        display: none;
+      }
+}
 
 
 
@@ -184,12 +184,25 @@ html.navbar-open
 
 
 
+//contact toggler
+.contact-toggle
+{
+    @include breakpoint(M) 
+    {
+        //okay to use important here as we ALWAYS want it hidden
+        //and this overrides other more specific link based stylings
+        //in a clean fashion
+        display: none !important;
+
+    }
+}
+
 
 .navbar--contact__ul .nav__item
 { 
     background-color:           $color-white;
     @include breakpoint(M) {
-            display: none;
+        display: none;
     }
 
     a
