@@ -34,7 +34,7 @@ html.navbar-open
 //basic nav hidden contains all other navs
 .navbar 
 {
-  
+    letter-spacing:         4px;
     /*Collapsed */
     max-width:              250px;
 
@@ -169,16 +169,47 @@ html.navbar-open
 
 .navbar--languages__ul 
 {
-    @include breakpoint(M) 
-    {
-        position: fixed;
-        top: 0;
-        right: 0;
-    }
     
     .lang-item
     { 
-        background-color:           $color-calltoaction;
+        background-color:               $color-calltoaction;
+    }
+
+    @include breakpoint(M) 
+    {
+        position:                       fixed;
+        top:                            0;
+        right:                          0;
+        background-color:               $color-menu;
+        font-size:                      0;//for ghost spacing/ margins
+
+        .lang-item
+        {
+            background-color:           $color-menu;
+            font-size:                  12px;
+            margin-bottom:              0;
+            position:                   relative;
+
+            a
+            {
+                letter-spacing:         3px;
+                padding-left:           10px;
+                padding-right:          10px;
+                padding-top:            5px;
+                padding-bottom:         5px;
+            }
+
+            &.active:after
+            {
+                content:                    '';
+                display:                    inline-block;
+                width:                      100%;
+                height:                     3px;
+                position:                   absolute;
+                bottom:                     0px;
+                background-color:           $color-white;
+            }
+        }
     }
 }
 
