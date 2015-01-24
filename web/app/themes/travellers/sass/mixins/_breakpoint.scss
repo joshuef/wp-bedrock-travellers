@@ -22,6 +22,10 @@ $breakpoint-extra-large: 100em;   //1600px
     @media all and (min-width: $breakpoint-small) {
       @content;
     }
+  } @else if $canvas == StoM {
+    @media all and (max-width: $breakpoint-medium -0.1em ) {
+      @content;
+    } 
   } @else if $canvas == M {
     @media all and (min-width: $breakpoint-medium) {
       @content;

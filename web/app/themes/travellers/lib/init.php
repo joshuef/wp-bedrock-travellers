@@ -12,7 +12,8 @@ function roots_setup() {
   register_nav_menus(array(
     'primary_navigation' => __('Primary Navigation'),
     'language_navigation' => __('Language Navigation'),
-    'contact_navigation' => __('Contact Navigation')
+    'contact_navigation' => __('Contact Navigation'),
+    'contact_navigation--top' => __('Top Contact Info')
   ));
 
   // Add post thumbnails

@@ -177,8 +177,120 @@ html.navbar-open
 
     @include breakpoint(M) 
     {
-        position:                       fixed;
-        top:                            0;
+        display: none;
+        // position:                       absolute;
+        // top:                            -160px ; //height of the banner
+        // right:                          0;
+        // background-color:               $color-menu;
+        // font-size:                      0;//for ghost spacing/ margins
+
+        // .lang-item
+        // {
+        //     background-color:           $color-menu;
+        //     font-size:                  12px;
+        //     margin-bottom:              0;
+        //     position:                   relative;
+
+        //     a
+        //     {
+        //         letter-spacing:         3px;
+        //         padding-left:           10px;
+        //         padding-right:          10px;
+        //         padding-top:            5px;
+        //         padding-bottom:         5px;
+        //     }
+
+        //     &.current-lang:after
+        //     {
+        //         content:                    '';
+        //         display:                    inline-block;
+        //         width:                      100%;
+        //         height:                     3px;
+        //         position:                   absolute;
+        //         bottom:                     0px;
+        //         background-color:           $color-white;
+        //     }
+        // }
+    }
+}
+
+
+
+
+
+
+
+
+//contact toggler
+.contact-toggle
+{
+    @include breakpoint(M) 
+    {
+        //okay to use important here as we ALWAYS want it hidden
+        //and this overrides other more specific link based stylings
+        //in a clean fashion
+        display: none !important;
+
+    }
+}
+
+// main contact type navigation to go in sidebar
+.navbar--contact__ul 
+{
+    display: none;
+    // @include breakpoint(M) {
+    //     // display: none;
+    //     position:               absolute;
+    //     top:                    -160px;
+    //     background-color:       transparent;
+    // }
+
+    .nav__item
+    { 
+        background-color:           $color-white;
+        a
+        {
+            color:                      $color-blue;
+            
+            .navbar--contact__title
+            {
+                color:                      $color-headercopy;
+            }
+        }
+        
+        @include breakpoint(StoM) {
+            //only for small screens, otherwise lets default menu
+        }
+        // @include breakpoint(M) {
+        //     background-color:       transparent;
+            
+        //     a
+        //     {
+        //         color:  $color-white;
+        //     }
+        // }
+
+    }
+}
+
+
+
+
+
+
+
+//banner navigation links
+
+.navbar--languages__ul--top
+{
+    display:                            none;
+
+
+    @include breakpoint(M) 
+    {
+        display:                        block;
+        // position:                       absolute;
+        top:                            -0px ; //height of the banner
         right:                          0;
         background-color:               $color-menu;
         font-size:                      0;//for ghost spacing/ margins
@@ -215,42 +327,93 @@ html.navbar-open
 
 
 
-//contact toggler
-.contact-toggle
+// top contact form
+// {
+//     display: inline-block;
+//     float: right;
+// }
+.navbar--contact--top,
+.navbar--language--top
 {
-    @include breakpoint(M) 
-    {
-        //okay to use important here as we ALWAYS want it hidden
-        //and this overrides other more specific link based stylings
-        //in a clean fashion
-        display: none !important;
-
-    }
+    display:                inline-block;
+    vertical-align:         top;
+    float:                  right;
 }
+.navbar--contact--top__ul 
+{
+    display:                none;
+    margin-top:             5px;
+    margin-bottom:          0;
 
-
-.navbar--contact__ul .nav__item
-{ 
-    background-color:           $color-white;
     @include breakpoint(M) {
-        display: none;
+        display:                block;
+        // position:               absolute;
+        top:                    0px;
+        // background-color:       transparent;
     }
 
-    a
+    .nav__item
     {
-        color:                      $color-blue;
-        
-        .navbar--contact__title
+        background-color:       transparent;
+        margin-bottom:          0;
+
+        a
         {
-            color:                      $color-headercopy;
+            @extend %Copy;
+            font-weight:            200;
+            padding: 0;
+            padding-right:          1em;
+            padding-left:           1em;
+            position:               relative;
+            
+            &:after
+            {
+                content:            '.';
+                display:            block;
+                position:           absolute;
+                right:              -0.2em;
+                top:                -0.2em;
+            }
+
+        }
+
+        &:last-child a:after
+        {
+            display:            none;
         }
     }
+    // { 
+    //         background-color:           $color-white;
+    //         a
+    //         {
+    //             color:                      $color-blue;
+                
+    //         }
+        
+    //     @include breakpoint(StoM) {
+    //             .navbar--contact__title
+    //             {
+    //                 color:                      $color-headercopy;
+    //             }
+    //         //only for small screens, otherwise lets default menu
+    //     }
+    //     @include breakpoint(M) {
+    //         background-color:       transparent;
+            
+    //         a
+    //         {
+    //             color:  $color-white;
+    //         }
+    //     }
+
+    // }
 }
 
 
 
 
 
+// booking link
 .booking-link
 {
     background-color: $color-calltoaction;
