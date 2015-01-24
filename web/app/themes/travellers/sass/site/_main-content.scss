@@ -1,13 +1,24 @@
+.content //smoothstate container
+{
+    margin: 0 auto;
+    display: block;
+    max-width: 1200px;
+    text-align: right;
+}
+
+
 $barWidth : 200px;
 
 .booking-bar
 {
     display: none;
     vertical-align: top;
+    text-align: left;
     @include breakpoint( M )
     {
         display: inline-block;
-        width: $barWidth;
+        // width: $barWidth;
+        
     }
 }
 
@@ -15,13 +26,16 @@ $barWidth : 200px;
 .main
 {
     margin-top: 40px;
-    min-height: 120vh;
+    min-height: 140vh;
+    text-align: left;
+
     @include breakpoint( M ) 
     {
         margin-top: 0;
         vertical-align: top;
         display: inline-block;
-        width: calc( 100% - 205px );
+        width:      75%;
+        max-width:  60em;
         // margin-top: 0;
     }
 }

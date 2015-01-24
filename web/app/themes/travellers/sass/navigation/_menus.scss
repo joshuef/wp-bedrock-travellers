@@ -235,15 +235,15 @@ html.navbar-open
 }
 
 // main contact type navigation to go in sidebar
-.navbar--contact__ul 
+.navbar--contact__ul
 {
-    display: none;
-    // @include breakpoint(M) {
-    //     // display: none;
-    //     position:               absolute;
-    //     top:                    -160px;
-    //     background-color:       transparent;
-    // }
+    // display: none;
+    @include breakpoint(M) {
+        display: none;
+        // position:               absolute;
+        // top:                    -160px;
+        // background-color:       transparent;
+    }
 
     .nav__item
     { 
@@ -272,6 +272,15 @@ html.navbar-open
 
     }
 }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -324,6 +333,14 @@ html.navbar-open
         }
     }
 }
+
+
+
+
+
+
+
+
 
 
 .banner__navs:after

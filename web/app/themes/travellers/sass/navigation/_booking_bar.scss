@@ -1,0 +1,61 @@
+.booking-bar
+{
+    background-color: $color-white;
+    // margin-right: 5px;
+    width:          25%;
+    margin-left:    -3px; //magic spacing
+    max-width:      298px;
+    min-width:      210px;
+    display: inline-block;
+
+    h3, h4
+    {
+        text-align:             center;
+        padding:                1vw;
+        background-color:       $color-darkgrey;
+
+    }
+
+    h4
+    {
+        background-color:       $color-lightgrey;
+
+    }
+
+    p
+    {
+        padding-left:           1em;
+        padding-right:          1em;
+    }
+
+    ul
+    {
+        list-style:             none;
+        padding-left:           1em;
+    }
+
+    li
+    {
+        margin-bottom:          0.5em;
+        text-align:             left;
+    }
+
+    a,
+    a:visited
+    {
+        color:                  $color-link;
+    }
+
+    .intro
+    {
+        display:                inline-block;
+        margin-top:             0; 
+        margin-bottom:          0;
+        @extend %Intro;
+    }
+}
+
+.booking-bar__link-title
+{
+    color: $color-headercopy;
+}
