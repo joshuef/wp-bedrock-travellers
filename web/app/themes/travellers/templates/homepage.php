@@ -39,6 +39,16 @@ Template Name: Home Page
     
 
     <div class="homepage__sections">
+        <div class="homepage__section">
+            <div id="TA_selfserveprop577" class="tripadvisor TA_selfserveprop">
+                <ul id="GQPv5me" class="TA_links oUwRigUNohe">
+                <li id="xv1ZXeqhtC" class="MxTiyag">
+                <a target="_blank" href="http://www.tripadvisor.com/"><img src="http://www.tripadvisor.com/img/cdsi/img2/branding/150_logo-11900-2.png" alt="TripAdvisor"/></a>
+                </li>
+                </ul>
+                </div>
+                <script src="http://www.jscache.com/wejs?wtype=selfserveprop&amp;uniq=577&amp;locationId=559605&amp;lang=en_US&amp;rating=true&amp;nreviews=5&amp;writereviewlink=true&amp;popIdx=true&amp;iswide=false&amp;border=false&amp;display_version=2"></script>
+        </div>
         <?php
         global $post;
 

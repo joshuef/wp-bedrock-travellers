@@ -44,7 +44,11 @@
 
 
 
-
+.tripadvisor,
+.tripadvisor div div
+{
+    background-color: transparent !important; //override
+}
 
 
 
