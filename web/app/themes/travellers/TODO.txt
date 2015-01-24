@@ -12,3 +12,5 @@ TODO:
   // 
   // include booking thing only once and use js to duplicate it to reduce requests
   // 
+
+  // reponsive trip advisor load??

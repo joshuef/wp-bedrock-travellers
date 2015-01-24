@@ -28,6 +28,7 @@ var Travellers = {
         {
         // JavaScript to be fired on all pages
             var self = this;
+            self.setBookingNavWidth();
 
             this.fonz = $('#main-content').smoothState(
                         { 
@@ -43,7 +44,6 @@ var Travellers = {
 
             self.hideSrollbaronSmallerScreens();
 
-            self.setBookingMenuClass();
 
             //To be run only on certain fishsizes
             $( document ).ready( function()
@@ -58,15 +58,21 @@ var Travellers = {
             $( window ).resize( function( )
             {
                 self.onWindowReadyLets();
-                self.setBookingMenuClass();
+                self.setBookingNavWidth();
             });
         },
 
-        setBookingMenuClass : function ( )
+        setBookingNavWidth : function ( )
         {
-            var booking = $( 'a[href="#booking"]', '.js-site-nav' );
-            console.log( booking );
-            booking.addClass( 'js-booking-link  booking-link' );
+            var booking = $( '.js-navbar--main .nav__item:first-child' );
+            // booking.addClass( 'js-booking-link  booking-link' );
+            var bookingBar = $( '.booking-bar' );
+
+            var whereWeWantRHS =  bookingBar.offset().left;
+            console.log( whereWeWantRHS );
+            console.log();
+
+            booking.css( 'padding-left', whereWeWantRHS + 40 + 'px');
 
             //TODO if small screen, highjack and route to booking page?
             //Or better yet, have a second hidden one, and only show this on mobile?

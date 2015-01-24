@@ -23,15 +23,18 @@
 			<span class="burger__bar"></span>
 			<span class="burger__bar"></span>
 		</div>
-		<div class="suitcases icon-cases">
-			<!-- DnG baby -->
-		</div>
-		<a class="navbar-brand js-site-nav" href="<?php echo esc_url(home_url('/')); ?>">
-			<div class="icon-t  logo">
-				<!-- logooooo -->
+		<div class="logo-ish">
+			<div class="suitcases icon-cases">
+				<!-- DnG baby -->
 			</div>
-			<?php bloginfo('name'); ?>
-		</a>
+			<a class="navbar-brand js-site-nav" href="<?php echo esc_url(home_url('/')); ?>">
+				<div class="icon-t  logo">
+					<!-- logooooo -->
+				</div>
+				<?php bloginfo('name'); ?>
+			</a>
+			
+		</div>
 		
 	</div>
 

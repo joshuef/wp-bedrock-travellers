@@ -10,7 +10,7 @@
     position:                   fixed;
     top:                        0;
     z-index:                    $z-foreground;
-    
+
     @include breakpoint(M) 
     {
         position:               relative;
@@ -44,22 +44,32 @@
 }
 
 
+.logo-ish
+{
+    display:            block;
+    width:              80%;
+    margin:             0 auto;
+    // text-align:         center;
+}
 
-.logo
+.banner .logo
 {
     display: none;
 
     @include breakpoint(M ) 
     {
         display:                inline-block;
-        width:                  100px;
-        height:                 100px;
+        margin-left:            18vw;
+        width:                  130px;
+        height:                 130px;
+        margin-top:             10px;
+        margin-bottom:             10px;
         vertical-align:         middle;
     }
 }
 
 
-.suitcases
+.banner .suitcases
 {
     display:                    none;
     // clear:                      both;
@@ -68,7 +78,9 @@
        {
             vertical-align:             middle;
             display:                    inline-block;
-            width:                      150px;
-            height:                     150px;
+            width:                      14vw;
+            height:                     14vw;
+            margin-left:                4vw;
+            position: absolute;
       }
 }
