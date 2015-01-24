@@ -326,6 +326,15 @@ html.navbar-open
 }
 
 
+.banner__navs:after
+{
+    display:            block;
+    line-height:        0;
+    clear:              both;
+    content:            '';
+    width:              1px;
+    height:             1px;
+}
 
 // top contact form
 // {
@@ -338,6 +347,8 @@ html.navbar-open
     display:                inline-block;
     vertical-align:         top;
     float:                  right;
+
+   
 }
 .navbar--contact--top__ul 
 {

@@ -61,7 +61,8 @@
 
 .suitcases
 {
-    display: none;
+    display:                    none;
+    // clear:                      both;
 
        @include breakpoint(M) 
        {

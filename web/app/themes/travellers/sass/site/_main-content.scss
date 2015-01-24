@@ -15,7 +15,7 @@ $barWidth : 200px;
 .main
 {
     margin-top: 40px;
-
+    min-height: 120vh;
     @include breakpoint( M ) 
     {
         margin-top: 0;

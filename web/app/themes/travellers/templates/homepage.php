@@ -36,6 +36,8 @@ Template Name: Home Page
 
     <?php endif; wp_reset_query(); ?>
     </div>
+    
+
     <div class="homepage__sections">
         <?php
         global $post;

@@ -10,7 +10,7 @@ html
 
 body
 {
-
+    @extend %Copy;
 }
 
 
@@ -30,6 +30,13 @@ a
     text-decoration:            none;
 }
 
+%copy-box
+{
+    box-sizing: border-box;
+    padding:        5vw;
+    padding-top:    0;
+}
+
 .main 
 {
     position:               relative;
@@ -45,8 +52,7 @@ a
     
     .copy
     {
-        box-sizing: border-box;
-        padding:        5vw;
+        @extend %copy-box;
     }
 }
 
