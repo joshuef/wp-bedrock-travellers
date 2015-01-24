@@ -74,11 +74,18 @@ grunticon: {
                 // pngfolder : 
             }
         }
+    },
+    uglify: {
+        my_target: {
+          files: {
+            'js/site.min.js': ['js/main.js', 'js/vendor/modernizr.js', 'js/vendor/smoothState.js' ]
+          }
     }
+  }
 });
     grunt.loadNpmTasks('grunt-notify');
 
-    grunt.registerTask('default', ['svgmin','grunticon', 'sass', 'autoprefixer']);
+    grunt.registerTask('default', ['svgmin','grunticon', 'sass', 'autoprefixer', 'uglify']);
     grunt.registerTask('bs', ['browserSync', 'watch']);
 
 };

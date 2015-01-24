@@ -43,6 +43,8 @@ var Travellers = {
 
             self.hideSrollbaronSmallerScreens();
 
+            self.setBookingMenuClass();
+
             //To be run only on certain fishsizes
             $( document ).ready( function()
             {
@@ -56,7 +58,18 @@ var Travellers = {
             $( window ).resize( function( )
             {
                 self.onWindowReadyLets();
+                self.setBookingMenuClass();
             });
+        },
+
+        setBookingMenuClass : function ( )
+        {
+            var booking = $( 'a[href="#booking"]', '.js-site-nav' );
+            console.log( booking );
+            booking.addClass( 'js-booking-link  booking-link' );
+
+            //TODO if small screen, highjack and route to booking page?
+            //Or better yet, have a second hidden one, and only show this on mobile?
         },
 
         onWindowReadyLets : function( )

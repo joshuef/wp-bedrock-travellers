@@ -59,7 +59,7 @@ Template Name: Home Page
                     <?php
                         // Grab the metadata from the database
                         $icon = get_post_meta( get_the_ID(), '_trv_icon', true ); ?>
-                    <div class="<?php _e( $icon ) ?>"></div>
+                    <div class="icon-<?php _e( $icon ) ?>"></div>
                     <h3><?php the_title(); ?></h1>
 
                     <?php the_content(); ?>

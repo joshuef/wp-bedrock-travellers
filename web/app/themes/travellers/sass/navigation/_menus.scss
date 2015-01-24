@@ -199,7 +199,7 @@ html.navbar-open
                 padding-bottom:         5px;
             }
 
-            &.active:after
+            &.current-lang:after
             {
                 content:                    '';
                 display:                    inline-block;
@@ -248,5 +248,12 @@ html.navbar-open
 }
 
 
+
+
+
+.booking-link
+{
+    background-color: $color-calltoaction;
+}
 
 

@@ -25,9 +25,6 @@
 				wp_nav_menu(array('theme_location' => 'primary_navigation', 'menu_class' => 'navbar__nav navbar--main'));
 			endif;
 			?>
-			<div class="main-nav__maxbooking">
-				<?php include( 'maxbooking__include.php'); ?>
-			</div>
 			<?php
 			if (has_nav_menu('language_navigation')) :
 				wp_nav_menu(array('theme_location' => 'language_navigation', 'menu_class' => 'navbar__nav navbar--languages__ul'));
