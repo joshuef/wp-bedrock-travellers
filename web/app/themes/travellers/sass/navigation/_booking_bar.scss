@@ -6,7 +6,12 @@
     margin-left:    -3px; //magic spacing
     max-width:      298px;
     min-width:      210px;
-    display: inline-block;
+    display: none;
+    
+       @include breakpoint(M) {
+            display: inline-block;
+        //content
+      }
 
     h3, h4
     {
