@@ -24,6 +24,8 @@ var Travellers = {
         fonz: {}, //smoothstate
         fishSize: '', //screen size from body:after
         vinesShown : false, //are the vines shown?
+        contactToggle : $( '.js-navbar a[title="contact"]'),
+        booking : $( '.js-navbar--main .nav__item:first-child' ),
         init: function() 
         {
         // JavaScript to be fired on all pages
@@ -64,19 +66,26 @@ var Travellers = {
 
         setBookingNavWidth : function ( )
         {
-            var booking = $( '.js-navbar--main .nav__item:first-child' );
+            var booking = this.booking;
             // booking.addClass( 'js-booking-link  booking-link' );
             var bookingBar = $( '.booking-bar' );
 
             //TODO its gotta do with text length ALSO.
             //maybe just fix width to RHS of booking bit
 
+            if( this.fishSize === 'whale' || this.fishSize === 'shark' )
+            {
+                var whereWeWantRHS =  bookingBar.offset().left;
+                console.log( whereWeWantRHS );
+                console.log();
 
-            var whereWeWantRHS =  bookingBar.offset().left;
-            console.log( whereWeWantRHS );
-            console.log();
-
-            booking.css( 'padding-left', whereWeWantRHS + 40 + 'px');
+                booking.css( 'padding-left', whereWeWantRHS + 40 + 'px');
+                
+            }
+            else
+            {
+                booking.css( 'padding-left', 0 );
+            }
 
             //TODO if small screen, highjack and route to booking page?
             //Or better yet, have a second hidden one, and only show this on mobile?
@@ -100,7 +109,7 @@ var Travellers = {
                 animtype : 'fade', // accepts 'fade' or 'slide'
                 animduration : 450, // how fast the animation are
                 animspeed : 4000, // the delay between each slide
-                automatic : true, // automatic
+                automatic : false, // automatic
 
                 // control and marker configuration
                 showcontrols : true, // show next and prev controls
@@ -130,20 +139,34 @@ var Travellers = {
             var self = this;
             self.fishSize = window.getComputedStyle( document.body,':after' ).getPropertyValue( 'content' );
             fishSize = self.fishSize;
-            console.log( fishSize );
 
             if( fishSize === 'shrimp' || fishSize === 'tuna' )
             {
                 // self.makeCurrentLanguageAToggler();
                 self.bindNavMenusToSide();
 
+                $slider = $( '.js-slider' ).addClass( 'wee-fish' );
             }
             else
             {
               //we're larger so...
               self.showVines();
               self.loadSlider();
+              self.lazyLoadImages( $( '.js-showcase__pic' ) );
+              this.hideContactForBigFish();
+              this.preventBookingClickForBigFish();
             }
+        },
+
+        hideContactForBigFish : function ( )
+        {
+            this.contactToggle.hide();     
+        },
+
+        preventBookingClickForBigFish : function ( )
+        {
+            this.booking.click( function( e ) { e.preventDefault(); });
+            this.booking.addClass( 'big-fish' );
         },
 
         hideSrollbarOnSmallerScreens : function ( )
@@ -256,8 +279,7 @@ var Travellers = {
             var mask        = $( '.js-nav-mask' );
             var menus       = $( '.js-navbar' );
 
-            var contactToggle = $( '.js-navbar a[title="contact"]');
-
+            var contactToggle = this.contactToggle;
             // gets a link with title contact and makes it a toggle
             if( contactToggle )
             {
@@ -266,6 +288,7 @@ var Travellers = {
 
                 //to hide it on larger screens via css
                 contactToggle.addClass( 'contact-toggle' );
+
             }
 
             mask.click( function( e )

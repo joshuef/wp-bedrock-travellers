@@ -8,10 +8,17 @@
     min-width:      210px;
     display: none;
 
-       @include breakpoint(M) {
-            display: inline-block;
-        //content
-      }
+   @include breakpoint(M) 
+   {
+            display: none;
+        display: inline-block;
+        
+    }
+
+    object
+    {
+        width: 100% !important;
+    }
 
     h3, h4
     {

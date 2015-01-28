@@ -172,12 +172,17 @@ html.navbar-open
             //     right:                  -3px;
             //     background-color:       $color-white;
             // }
+            &.big-fish a:hover 
+            {
+                cursor: default;
+            }
         }
         .nav__item:first-child
         {
             background-color: $color-calltoaction;
-            // padding-left: 
+            // padding-left:
         }
+
         .nav__item:last-child:after
         {
             // display: none;
@@ -472,7 +477,10 @@ html.navbar-open
 }
 
 
-
+// .booking--smallscreen
+// {
+//     padding-left: 0;
+// }
 
 
 // booking link

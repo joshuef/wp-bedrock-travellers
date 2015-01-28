@@ -47,14 +47,13 @@ Template Name: Home Page
 
                     $slideNumber++;
                 }
-
                 echo '</ul>';
             } 
 
      ?>
         </div>
-        <img class="showcase__pic" src="http://lorempixel.com/400/300/" alt="">
-        <?php // more images loaded via js size hings ?>
+        <div class="showcase__pic  js-showcase__pic" data-lazy-image="http://lorempixel.com/400/300/" alt="">
+        </div>
     </div>
     <div class="copy">
         <h2><?php the_title(); ?></h2>

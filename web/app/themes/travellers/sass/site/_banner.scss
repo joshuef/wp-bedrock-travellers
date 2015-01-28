@@ -3,7 +3,7 @@
 .banner-container
 {
     background-color:           $color-white;
-    padding-top:                5px;
+    
 
     //to allow nav on mobile sufficient space
     min-height:                 40px;
@@ -13,6 +13,7 @@
 
     @include breakpoint(M) 
     {
+        padding-top:                5px;
         position:               relative;
     }
 }
@@ -46,9 +47,13 @@
 
 .logo-ish
 {
-    display:            block;
-    width:              80%;
-    margin:             0 auto;
+    display: inline-block;
+       @include breakpoint(M) {
+        //content
+        display:            block;
+        width:              80%;
+        margin:             0 auto;
+      }
     // text-align:         center;
 }
 

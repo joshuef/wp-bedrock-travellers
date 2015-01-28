@@ -1,6 +1,7 @@
 .showcase
 {
     box-sizing: border-box;
+    font-size: 0;
     
 }
 .showcase__pic
@@ -17,8 +18,36 @@
     vertical-align: top;
     font-size: 0;
     display: inline-block;
-    width: 50%;
+    // width: 50%;
     height: auto;
+
+    width: 100%;
+
+    img 
+    {
+        width: 100vw;
+        height: auto !important;
+    }
+
+       @include breakpoint(M) {
+        width: 50%;
+      }
+
+    &.wee-fish .slider__ul
+    {
+
+        display: inline-block;
+        li
+        {
+            display: inline-block;
+        }
+    }
+}
+
+.showcase__pic
+{
+    display: inline-block;
+    width: 50%;
 }
 
 // .slider__ul

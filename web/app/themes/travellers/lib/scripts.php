@@ -52,11 +52,10 @@ function roots_scripts() {
        */
       if (WP_ENV === 'development') {
 
-
         //
         // STYLES
         //
-        $stylesheetTime = filemtime( get_stylesheet_directory() . '/style.css' );
+        $stylesheetTime = filemtime( get_stylesheet_directory() . '/css/style.css' );
 
         global $wp_styles;
         global $is_IE;
@@ -117,7 +116,7 @@ function roots_scripts() {
         //
         // STYLES
         //
-        $stylesheetTime = filemtime( get_stylesheet_directory() . '/style.css' );
+        $stylesheetTime = filemtime( get_stylesheet_directory() . '/css/style.css' );
 
         global $wp_styles;
         global $is_IE;
@@ -139,21 +138,21 @@ function roots_scripts() {
           * <!--[if lte IE 8]> ... <![endif]-->
           * NOTE: You can use the 'less than' or the 'less than or equal to' syntax here interchangeably.
           */
-          wp_enqueue_style( 'style--legacy', plugins_url( 'css/style--legacy.css' , __FILE__ ) , [] , $styleTime );
+          wp_enqueue_style( 'style--legacy', plugins_url( 'css/style--legacy.css' , __FILE__ ) , [] , $stylesheetTime );
           $wp_styles->add_data( 'style--legacy', 'conditional', 'lt IE 9' );
           /**
           * Load our IE version-specific stylesheet:
           * <!--[if IE 7]> ... <![endif]-->
           */
-          wp_enqueue_style( 'style--fallback', plugins_url( 'css/style--fallback.css' , __FILE__ ), [] , $styleTime );
+          wp_enqueue_style( 'style--fallback', plugins_url( 'css/style--fallback.css' , __FILE__ ), [] , $stylesheetTime );
           $wp_styles->add_data( 'style--fallback', 'conditional', 'IE 7' );
         }
         
 
 
+        $jsTime = filemtime( get_stylesheet_directory() . '/js/site.min.js' );
 
-
-        wp_enqueue_script( 'site', get_stylesheet_directory_uri() . '/js/site.min.js', array(), $stylesheetTime, true );
+        wp_enqueue_script( 'site', get_stylesheet_directory_uri() . '/js/site.min.js', array(), $jsTime, true );
 
     }
 
