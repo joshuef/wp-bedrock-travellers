@@ -12,9 +12,17 @@
 
 
 
-.sliderbox
+.slider
 {
     vertical-align: top;
     font-size: 0;
     display: inline-block;
+    width: 50%;
+    height: auto;
 }
+
+// .slider__ul
+// {
+//     padding-left: 0;
+//     list-style-type: none;
+// }

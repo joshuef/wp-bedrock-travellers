@@ -7,7 +7,7 @@ Template Name: Home Page
 
 <div class="main__the-page">
     <div class="showcase  js-showcase">
-        <div class="js-slider">
+        <div class="js-slider  slider">
             <?php 
 
             $page = get_page_by_path( 'slider' );
@@ -26,19 +26,21 @@ Template Name: Home Page
             $attachments = get_posts($args);
 
             $slideNumber = 1;
-            if ($attachments) {
-                echo '<ul class="slider__ul  js-slider__ul">';
+
+            if ($attachments) 
+            {
+                echo '<ul class="bjqs  slider__ul  js-slider__ul">';
 
                 foreach ($attachments as $attachment) 
                 {
                     if( $slideNumber === 1 )
                     {
                         echo '<li>';
-                        echo wp_get_attachment_link($attachment->ID, 'medium', false, false);
+                        echo '<img src="' . wp_get_attachment_image_src($attachment->ID, 'medium', false, false)[0] . '"/>';
                     }
                     else
                     {
-                        echo '<li data-slide-pic="'. wp_get_attachment_url($attachment->ID, 'medium', false, false) .'">';
+                        echo '<li class="js-slide" data-lazy-image="'. wp_get_attachment_image_src($attachment->ID, 'medium', false, false)[0] .'">';
                         
                     }
                     echo '</li>';
@@ -75,7 +77,7 @@ Template Name: Home Page
 
         <?php while ( $all_vines->have_posts() ) : $all_vines->the_post(); ?>
             <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'medium' ); ?>
-            <div  class="homepage__vine js-vine__thumb" data-vine-link="<?php _e( get_the_content() ); ?>" data-vine='<?php _e( $thumb[0] );  ?>'></div>
+            <div  class="homepage__vine js-vine__thumb" data-target-link="<?php _e( get_the_content() ); ?>" data-lazy-image='<?php _e( $thumb[0] );  ?>'></div>
         <?php endwhile; ?>
 
     <?php endif; wp_reset_query(); ?>

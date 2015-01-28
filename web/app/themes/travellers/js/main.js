@@ -84,29 +84,43 @@ var Travellers = {
 
         loadSlider : function( )
         {
-            var $sliderBox = $( '<div class="js-sliderbox  sliderbox"></div>' );
-            var showcase = $( '.js-showcase' );
+            // var $sliderBox = $( '<div class="js-sliderbox  sliderbox"></div>' );
+            // var showcase = $( '.js-showcase' );
+            
+            $slider = $( '.js-slider' );
+            $slides = $( '.js-slide', $slider );
 
-            // $.get( "/slider", function( data ) 
-            // {
-            //     // console.log( 'got ittt', data );
+            this.lazyLoadImages( $slides );
 
-            //     data = $( data );
+            $slider.bjqs({
+                'height' : 400,
+                'width' : 500,
 
-            //     var slideDeck = data; //.children( '.slidedeck-frame' );
-            //     // console.log( data.children('div') );
-            //     // slideDeck.children( 'br' ).remove();
-            //       // $( ".result" ).html( data );
-            //       // alert( "Load was performed." );
-            //     // $sliderBox.html( slideDeck );
-            //     $sliderBox.html( slideDeck );
+                // animation values
+                animtype : 'fade', // accepts 'fade' or 'slide'
+                animduration : 450, // how fast the animation are
+                animspeed : 4000, // the delay between each slide
+                automatic : true, // automatic
+
+                // control and marker configuration
+                showcontrols : true, // show next and prev controls
+                centercontrols : true, // center controls verically
+                nexttext : 'Next', // Text for 'next' button (can use HTML)
+                prevtext : 'Prev', // Text for 'previous' button (can use HTML)
+                // showmarkers : true, // Show individual slide markers
+                // centermarkers : true, // Center markers horizontally
+
+                // interaction values
+                keyboardnav : true, // enable keyboard navigation
+                hoverpause : true, // pause the slider on hover
+
+                // presentational options
+                // usecaptions : true, // show captions for images using the image title tag
+                randomstart : true, // start slider at random slide
+                responsive : true // enable responsive capabilities (beta)
 
 
-            //     showcase.prepend( $sliderBox );
-
-            //     // slideDeck = slideDeck.slidedeck();
-            // });
-
+            });
 
         },
 
@@ -143,35 +157,46 @@ var Travellers = {
          */
         showVines : function ( )
         {
+
             if( ! this.vinesShown )
             {
                 var $vines = $( '.js-vine__thumb' );
 
-                $.each( $vines, function( i, vine )
-                {
-                    var $vine = $( vine );
-                    var $vineImg = $( vine ).data( 'vine' );
-                    var $vineLink = $vine.data( 'vineLink' );
-
-                    if( !$vineLink )
-                    {
-                        $vineLink = $vine;
-                    }
-                    else
-                    {
-                        $vineLink = $( '<a href="'+ $vineLink +'" target="_blank"></a>' );
-                        $vine.append( $vineLink );
-                    }
-
-
-
-                    $vineLink.append( "<img src='" + $vineImg + "' />" );
-                    //todo parse the link for href as well
-
-                });
+                this.lazyLoadImages( $vines );
                 
                 this.vinesShown = true;
             }
+        },
+
+        /**
+         * Lazily loads images from a lazyImage data attribute
+         * from an array of elements
+         * @param  {object} $elements array / jq object of elements to load
+         */
+        lazyLoadImages : function( $elements )
+        {
+            $.each( $elements, function( i, element )
+            {
+                var $element = $( element );
+                var $elementImg = $( element ).data( 'lazyImage' );
+                var $targetLink = $element.data( 'targetLink' );
+
+                if( !$targetLink )
+                {
+                    $targetLink = $element;
+                }
+                else
+                {
+                    $targetLink = $( '<a href="'+ $targetLink +'" target="_blank"></a>' );
+                    $element.append( $targetLink );
+                }
+
+                //tagertLInk is the element. RENAME IT
+
+                $targetLink.append( "<img src='" + $elementImg + "' />" );
+                //todo parse the link for href as well
+
+            });
         },
 
         /*
