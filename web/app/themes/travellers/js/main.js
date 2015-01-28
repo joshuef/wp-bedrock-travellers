@@ -155,6 +155,9 @@ var Travellers = {
               self.lazyLoadImages( $( '.js-showcase__pic' ) );
               this.hideContactForBigFish();
               this.preventBookingClickForBigFish();
+
+              //better way to do this than global?
+              window.trv__setupSelect2s();
             }
         },
 
@@ -174,6 +177,7 @@ var Travellers = {
             console.log( 'HIDING' );
          
         },
+
 
         /**
          * Shows the vines via loading data-vine and appending an img

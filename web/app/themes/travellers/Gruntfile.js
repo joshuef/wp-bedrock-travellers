@@ -22,6 +22,7 @@ sass: {
             'css/style.css' : 'sass/style.scss',
             'css/style--legacy.css' : 'sass/style--legacy.scss',
             'css/style--fallback.css' : 'sass/style--fallback.scss',
+            'css/select2.css' : 'sass/select2.scss'
         }
     }
 },
