@@ -71,3 +71,39 @@
 {
     color: $color-headercopy;
 }
+
+
+.booking__label
+{
+    display: block;
+}
+.booking__label,
+.select2-container,
+{
+    @extend %Intro;
+    font-size: 1.5em;
+    color:          $color-headercopy;
+    min-width:  60px;
+}
+.select2-selection.select2-selection--single
+{
+    background-color:   $color-select2gray !important;
+    border-color: $color-select2gray !important;
+    border: none !important;
+    border-radius: 2px !important;
+}
+
+.select2-container .select2-selection .select2-selection__rendered
+{
+    color:          $color-headercopy !important;
+    
+}
+#ad_mm_yyyy + .select2
+{
+    width:  150px !important;
+}
+
+.select2-selection__arrow
+{
+    display: none !important;
+}

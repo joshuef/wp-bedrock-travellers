@@ -7,8 +7,8 @@
  <form action="https://book.maxbooking.com/index.php?id=2825&amp;mod=Step1" method="post" target="_blank">
     <ul>
         <li>
-            <label>Arrival:</label>
-            <select name="ad_tt" id="ad_tt">
+            <label class="booking__label" for"ad_tt">Arrival</label>
+            <select class="booking__input" name="ad_tt" id="ad_tt">
                               <option value="01">01</option>
                               <option value="02">02</option>
                               <option value="03">03</option>
@@ -41,24 +41,23 @@
                               <option value="30">30</option>
                               <option value="31">31</option>
                           </select>
-            <select name="ad_mm_yyyy" id="ad_mm_yyyy">
-              <option value="01/2015">Jan 15</option><option value="02/2015">Feb 15</option><option value="03/2015">Mar 15</option><option value="04/2015">Apr 15</option><option value="05/2015">May 15</option><option value="06/2015">Jun 15</option><option value="07/2015">Jul 15</option><option value="08/2015">Aug 15</option><option value="09/2015">Sep 15</option><option value="10/2015">Oct 15</option><option value="11/2015">Nov 15</option><option value="12/2015">Dec 15</option>            </select>
+            <select class="booking__input" name="ad_mm_yyyy" id="ad_mm_yyyy">
+              <option  value="01/2015">Jan 15</option><option value="02/2015">Feb 15</option><option value="03/2015">Mar 15</option><option value="04/2015">Apr 15</option><option value="05/2015">May 15</option><option value="06/2015">Jun 15</option><option value="07/2015">Jul 15</option><option value="08/2015">Aug 15</option><option value="09/2015">Sep 15</option><option value="10/2015">Oct 15</option><option value="11/2015">Nov 15</option><option value="12/2015">Dec 15</option>            </select>
         </li>
         <li>
-            <label for="lengthofstay">Nights:</label>
-            <select name="lengthofstay" id="lengthofstay">
+            <label class="booking__label" for="lengthofstay">Nights</label>
+            <select class="booking__input" name="lengthofstay" id="lengthofstay">
                 <option value="1">1</option><option value="2">2</option><option value="3" selected="selected">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option>
             </select>
         </li>
         <li>
-            <label for="persons">Guests:</label>
-            <select name="persons" id="persons">
+            <label class="booking__label"  for="persons">Guests</label>
+            <select class="booking__input" name="persons" id="persons">
                 <option value="1">1</option><option value="2" selected="selected">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option>
             </select>
         </li>
-        <li style="padding-bottom:0 !important;">
-          <label>&nbsp;</label>
-          <input type="submit" name="submit_widget1" value="Search">
+        <li>
+          <input class="booking__submit" type="submit" name="submit_widget1" value="Search">
         </li>
     </ul>
     </form>
