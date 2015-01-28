@@ -58,3 +58,28 @@ class Roots_Wrapping {
   }
 }
 add_filter('template_include', array('Roots_Wrapping', 'wrap'), 99);
+
+
+
+
+add_filter('roots/wrap_base', 'trv_wrap_sliders'); // Add our function to the roots_wrap_base filter
+
+/**
+ * Sets the base for sliders to remove total page guff.
+ * @param  array $templates wordpress templates array
+ * @return array            as above. templates
+ */
+function trv_wrap_sliders($templates) 
+{
+
+  $current_template = get_page_template();
+
+  // $cpt = get_post_type(); // Get the current post type
+  if ( strpos( $current_template, 'slider' ) > 0 ) {
+     array_unshift($templates, 'base--slider.php'); // Shift the template to the front of the array
+  }
+  return $templates; // Return our modified array with base-$cpt.php at the front of the queue
+}
+
+
+

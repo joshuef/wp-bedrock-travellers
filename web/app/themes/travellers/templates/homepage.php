@@ -6,8 +6,52 @@ Template Name: Home Page
 ?>
 
 <div class="main__the-page">
-    <div class="showcase">
-        <img class="showcase__slider" src="http://lorempixel.com/400/300/" alt="">
+    <div class="showcase  js-showcase">
+        <div class="js-slider">
+            <?php 
+
+            $page = get_page_by_path( 'slider' );
+
+            $args = array(
+            'order'          => 'ASC',
+            'orderby'        => 'menu_order',
+            'post_type'      => 'attachment',
+            'post_parent'    => $page->ID,
+            'post_mime_type' => 'image',
+            'post_status'    => null,
+            'numberposts'    => -1,
+            // 'name'     => 'slider'
+            );
+
+            $attachments = get_posts($args);
+
+            $slideNumber = 1;
+            if ($attachments) {
+                echo '<ul class="slider__ul  js-slider__ul">';
+
+                foreach ($attachments as $attachment) 
+                {
+                    if( $slideNumber === 1 )
+                    {
+                        echo '<li>';
+                        echo wp_get_attachment_link($attachment->ID, 'medium', false, false);
+                    }
+                    else
+                    {
+                        echo '<li data-slide-pic="'. wp_get_attachment_url($attachment->ID, 'medium', false, false) .'">';
+                        
+                    }
+                    echo '</li>';
+
+                    $slideNumber++;
+                }
+
+                echo '</ul>';
+            } 
+
+     ?>
+        </div>
+        <img class="showcase__pic" src="http://lorempixel.com/400/300/" alt="">
         <?php // more images loaded via js size hings ?>
     </div>
     <div class="copy">

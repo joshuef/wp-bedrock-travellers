@@ -42,7 +42,7 @@ var Travellers = {
             // this.makeNavigationSmooth( $( '.js-site-nav') );
 
 
-            self.hideSrollbaronSmallerScreens();
+            self.hideSrollbarOnSmallerScreens();
 
 
             //To be run only on certain fishsizes
@@ -68,6 +68,10 @@ var Travellers = {
             // booking.addClass( 'js-booking-link  booking-link' );
             var bookingBar = $( '.booking-bar' );
 
+            //TODO its gotta do with text length ALSO.
+            //maybe just fix width to RHS of booking bit
+
+
             var whereWeWantRHS =  bookingBar.offset().left;
             console.log( whereWeWantRHS );
             console.log();
@@ -77,6 +81,35 @@ var Travellers = {
             //TODO if small screen, highjack and route to booking page?
             //Or better yet, have a second hidden one, and only show this on mobile?
         },
+
+        loadSlider : function( )
+        {
+            var $sliderBox = $( '<div class="js-sliderbox  sliderbox"></div>' );
+            var showcase = $( '.js-showcase' );
+
+            // $.get( "/slider", function( data ) 
+            // {
+            //     // console.log( 'got ittt', data );
+
+            //     data = $( data );
+
+            //     var slideDeck = data; //.children( '.slidedeck-frame' );
+            //     // console.log( data.children('div') );
+            //     // slideDeck.children( 'br' ).remove();
+            //       // $( ".result" ).html( data );
+            //       // alert( "Load was performed." );
+            //     // $sliderBox.html( slideDeck );
+            //     $sliderBox.html( slideDeck );
+
+
+            //     showcase.prepend( $sliderBox );
+
+            //     // slideDeck = slideDeck.slidedeck();
+            // });
+
+
+        },
+
 
         onWindowReadyLets : function( )
         {
@@ -95,10 +128,11 @@ var Travellers = {
             {
               //we're larger so...
               self.showVines();
+              self.loadSlider();
             }
         },
 
-        hideSrollbaronSmallerScreens : function ( )
+        hideSrollbarOnSmallerScreens : function ( )
         {
             console.log( 'HIDING' );
          
@@ -306,6 +340,7 @@ var UTIL = {
 };
 
 $(document).ready(UTIL.loadEvents);
+window.Travellers = Travellers;
 
 
 })(jQuery); // Fully reference jQuery after this point.

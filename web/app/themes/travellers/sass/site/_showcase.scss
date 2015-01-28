@@ -3,7 +3,18 @@
     box-sizing: border-box;
     
 }
-.showcase__slider
+.showcase__pic
 {
     max-width: 100%;
+    vertical-align: top;
+}
+
+
+
+
+.sliderbox
+{
+    vertical-align: top;
+    font-size: 0;
+    display: inline-block;
 }
