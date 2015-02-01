@@ -69,9 +69,9 @@ grunticon: {
             dest: "images/icons"
         }],
         options: {
-            datasvgcss : 'icons.data.svg.scss',
-            datapngcss : 'icons.data.png.scss',
-            urlpngcss : 'icons.fallback.png.scss',
+            datasvgcss : 'icons.data.svg.css',
+            datapngcss : 'icons.data.png.css',
+            urlpngcss : 'icons.fallback.png.css',
                 // pngfolder : 
             }
         }
