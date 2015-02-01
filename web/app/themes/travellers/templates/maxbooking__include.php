@@ -57,7 +57,7 @@
             </select>
         </li>
         <li>
-          <input class="booking__submit" type="submit" name="submit_widget1" value="Search">
+          <input class="booking__button" type="submit" name="submit_widget1" value="Book Now">
         </li>
     </ul>
     </form>

@@ -7,52 +7,54 @@ Template Name: Home Page
 
 <div class="main__the-page">
     <div class="showcase  js-showcase">
-        <div class="js-slider  slider">
-            <?php 
+        <div class="slider__container">
+            <div class="js-slider  slider">
+                <?php 
 
-            $page = get_page_by_path( 'slider' );
+                $page = get_page_by_path( 'slider' );
 
-            $args = array(
-            'order'          => 'ASC',
-            'orderby'        => 'menu_order',
-            'post_type'      => 'attachment',
-            'post_parent'    => $page->ID,
-            'post_mime_type' => 'image',
-            'post_status'    => null,
-            'numberposts'    => -1,
-            // 'name'     => 'slider'
-            );
+                $args = array(
+                'order'          => 'ASC',
+                'orderby'        => 'menu_order',
+                'post_type'      => 'attachment',
+                'post_parent'    => $page->ID,
+                'post_mime_type' => 'image',
+                'post_status'    => null,
+                'numberposts'    => -1,
+                // 'name'     => 'slider'
+                );
 
-            $attachments = get_posts($args);
+                $attachments = get_posts($args);
 
-            $slideNumber = 1;
+                $slideNumber = 1;
 
-            if ($attachments) 
-            {
-                echo '<ul class="bjqs  slider__ul  js-slider__ul">';
-
-                foreach ($attachments as $attachment) 
+                if ($attachments) 
                 {
-                    if( $slideNumber === 1 )
-                    {
-                        echo '<li>';
-                        echo '<img src="' . wp_get_attachment_image_src($attachment->ID, 'medium', false, false)[0] . '"/>';
-                    }
-                    else
-                    {
-                        echo '<li class="js-slide" data-lazy-image="'. wp_get_attachment_image_src($attachment->ID, 'medium', false, false)[0] .'">';
-                        
-                    }
-                    echo '</li>';
+                    echo '<ul class="bjqs  slider__ul  js-slider__ul">';
 
-                    $slideNumber++;
-                }
-                echo '</ul>';
-            } 
+                    foreach ($attachments as $attachment) 
+                    {
+                        if( $slideNumber === 1 )
+                        {
+                            echo '<li>';
+                            echo '<img src="' . wp_get_attachment_image_src($attachment->ID, 'medium', false, false)[0] . '"/>';
+                        }
+                        else
+                        {
+                            echo '<li class="js-slide" data-lazy-image="'. wp_get_attachment_image_src($attachment->ID, 'medium', false, false)[0] .'">';
+                            
+                        }
+                        echo '</li>';
 
-     ?>
+                        $slideNumber++;
+                    }
+                    echo '</ul>';
+                } 
+
+         ?>
+            </div>
         </div>
-        <div class="showcase__pic  js-showcase__pic" data-lazy-image="http://lorempixel.com/400/300/" alt="">
+        <div class="showcase__pic  js-showcase__pic" data-lazy-image="http://lorempixel.com/480/259/" alt="">
         </div>
     </div>
     <div class="copy">

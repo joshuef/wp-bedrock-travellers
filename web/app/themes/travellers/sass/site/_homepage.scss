@@ -1,11 +1,24 @@
 //each vine
 .homepage__vines
 {
+    display: none;
     font-size: 0; //stop margin gap
+    @include breakpoint(M) {
+        display: block;
+        padding-bottom: 5vw;
+    }
 }
 .homepage__vine
 {
     display: inline-block;
+    width: 25%;
+
+    img
+    {
+        width: 100%;
+        height:auto;
+        
+    }
 }
 
 
@@ -25,8 +38,11 @@
 
 .homepage__section
 {
+    text-align: center;
+    
    @include breakpoint(M) 
    {
+        text-align: left;
         margin-left: -2px; //overcome magic spacing
         max-width: 33%;
         display: inline-block;
@@ -44,6 +60,13 @@
 
 
 
+.tripadvisor
+{
+    display: none;
+       @include breakpoint(M) {
+        display: inline-block;
+      }
+}
 .tripadvisor,
 .tripadvisor div div
 {
@@ -71,4 +94,10 @@
 {
     width: 150px;
     height: 150px;
+
+    margin: 0 auto;
+
+       @include breakpoint(M) {
+        margin-left: 0;
+      }
 }

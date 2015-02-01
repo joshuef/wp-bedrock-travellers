@@ -33,7 +33,7 @@
         @extend %Intro;
         font-size:              24px;  
         vertical-align:         middle;  
-        letter-spacing:         5px;
+        // letter-spacing:         5px;
 
         @include breakpoint(M) 
         {

@@ -1,0 +1,9 @@
+.lazy-loading
+{
+    opacity: 1;
+    transition: all 300ms ease-in;
+}
+.lazy-loading.lazy-loading__hide
+{
+    opacity: 0 !important;
+}

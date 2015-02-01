@@ -3,6 +3,11 @@
     box-sizing: border-box;
     font-size: 0;
     
+       @include breakpoint(M) {
+        max-height: 265px;
+        // height: 19.9vw;
+        overflow: hidden;
+      }
 }
 .showcase__pic
 {
@@ -12,7 +17,15 @@
 
 
 
-
+.slider__container
+{
+    display: inline-block;
+    width: 100%;
+    @include breakpoint(M) {
+        //content
+        width:  50%;
+    }
+}
 .slider
 {
     vertical-align: top;
@@ -20,8 +33,10 @@
     display: inline-block;
     // width: 50%;
     height: auto;
-
     width: 100%;
+
+    display: block;
+    margin: 0 auto;
 
     img 
     {
@@ -30,7 +45,7 @@
     }
 
        @include breakpoint(M) {
-        width: 50%;
+        // width: 50%;
       }
 
     &.wee-fish .slider__ul
@@ -46,8 +61,17 @@
 
 .showcase__pic
 {
-    display: inline-block;
+    display: none;
     width: 50%;
+    // overflow: hidden;
+       @include breakpoint(M) {
+        display: inline-block;
+      }
+    img
+    {
+        width: 100%;
+        // max-height: 100%;
+    }
 }
 
 // .slider__ul
