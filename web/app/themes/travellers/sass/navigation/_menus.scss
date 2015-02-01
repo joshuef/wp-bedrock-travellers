@@ -19,7 +19,13 @@ html.navbar-open
     {
         position:               relative;
         height:                 auto;
-        margin-top:             0.5em;
+        margin-top:             1em;
+    }
+
+    @include breakpoint(L) 
+    {
+        margin-top: 1.5em;
+        //content
     }
 }
 
@@ -117,7 +123,8 @@ html.navbar-open
 {
     display:                block;
     list-style:             none;
-            background-color:       $color-menu;
+    background-color:       $color-menu;
+    font-size:              14px;
 
     &:hover
     {
@@ -128,6 +135,7 @@ html.navbar-open
     @include breakpoint(M) 
     {
         display: inline-block;
+        font-size:              1vw;
     }
 
     a
@@ -137,10 +145,10 @@ html.navbar-open
         color:              $color-white;
         @extend %Intro;
         width:              100%;
-        padding-left:       30px;
-        padding-right:      30px;
-        padding-top:        10px;
-        padding-bottom:     10px;
+        padding-left:       2em;
+        padding-right:      2em;
+        padding-top:        1em;
+        padding-bottom:     1em;
     }
 }
 
@@ -381,16 +389,6 @@ html.navbar-open
 
 
 
-
-.banner__navs:after
-{
-    display:            block;
-    line-height:        0;
-    clear:              both;
-    content:            '';
-    width:              1px;
-    height:             1px;
-}
 
 // top contact form
 // {

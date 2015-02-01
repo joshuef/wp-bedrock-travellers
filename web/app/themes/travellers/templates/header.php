@@ -31,7 +31,10 @@
 				<div class="icon-t  logo">
 					<!-- logooooo -->
 				</div>
-				<?php bloginfo('name'); ?>
+				<div class="banner__titles">
+					<?php bloginfo('name'); ?>
+					<?php dynamic_sidebar('sidebar-subtitle'); ?>					
+				</div>
 			</a>
 			
 		</div>

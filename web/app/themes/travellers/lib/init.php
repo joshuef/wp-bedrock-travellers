@@ -49,12 +49,12 @@ function roots_widgets_init() {
   ));
 
   register_sidebar(array(
-    'name'          => __('Footer', 'roots'),
-    'id'            => 'sidebar-footer',
-    'before_widget' => '<section class="widget %1$s %2$s">',
-    'after_widget'  => '</section>',
-    'before_title'  => '<h3>',
-    'after_title'   => '</h3>',
+    'name'          => __('Site Subtitle', 'roots'),
+    'id'            => 'sidebar-subtitle',
+    'before_widget' => '<div class="banner__subtitle %1$s %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h4>',
+    'after_title'   => '</h4>',
   ));
 }
 add_action('widgets_init', 'roots_widgets_init');

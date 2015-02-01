@@ -4,9 +4,11 @@
     // margin-right: 5px;
     width:          25%;
     margin-left:    -5px; //magic spacing
-    max-width:      298px;
+    max-width:      290px;
     min-width:      210px;
     display: none;
+    position: relative;
+    top: -10px;
 
    @include breakpoint(M) 
    {
@@ -76,15 +78,27 @@
 .booking__label
 {
     display: block;
+    margin-bottom: 5px;
 }
+
+
+
 .booking__label,
 .select2-container,
 {
     @extend %Intro;
-    font-size: 1.5em;
+    font-size: 1.2vw;
     color:          $color-headercopy;
     min-width:  60px;
 }
+
+
+
+
+
+
+
+
 .select2-selection.select2-selection--single
 {
     background-color:   $color-select2gray !important;
@@ -100,7 +114,8 @@
 }
 #ad_mm_yyyy + .select2
 {
-    width:  150px !important;
+    width: 45% !important;
+    margin-left: 1em;
 }
 
 .select2-selection__arrow

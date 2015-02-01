@@ -54,6 +54,11 @@ var Travellers = {
                 self.onWindowReadyLets();
 
                 self.wrapContactLinkTitle();
+
+                if( this.fishSize === 'whale' || this.fishSize === 'shark' )
+                {
+                    self.lazyLoadImages( $( '.js-showcase__pic' ) );
+                }
                 
             });
 
@@ -152,7 +157,6 @@ var Travellers = {
               //we're larger so...
               self.showVines();
               self.loadSlider();
-              self.lazyLoadImages( $( '.js-showcase__pic' ) );
               this.hideContactForBigFish();
               this.preventBookingClickForBigFish();
 
@@ -215,12 +219,12 @@ var Travellers = {
                 else
                 {
                     $targetLink = $( '<a href="'+ $targetLink +'" target="_blank"></a>' );
-                    $element.append( $targetLink );
+                    $element.html( $targetLink );
                 }
 
                 //tagertLInk is the element. RENAME IT
 
-                $targetLink.append( "<img src='" + $elementImg + "' />" );
+                $targetLink.html( "<img src='" + $elementImg + "' />" );
                 //todo parse the link for href as well
 
             });

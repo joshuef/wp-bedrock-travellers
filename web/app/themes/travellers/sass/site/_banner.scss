@@ -47,15 +47,19 @@
 
 .logo-ish
 {
-    display: inline-block;
-       @include breakpoint(M) {
+    display:            inline-block;
+    max-width:          $site-max-width;
+
+    @include breakpoint(M) 
+    {
         //content
         display:            block;
         width:              80%;
         margin:             0 auto;
-      }
+    }
     // text-align:         center;
 }
+
 
 .banner .logo
 {
@@ -65,8 +69,10 @@
     {
         display:                inline-block;
         margin-left:            18vw;
-        width:                  130px;
-        height:                 130px;
+        width:                  12vw;
+        height:                 12vw;
+        max-width:              150px;
+        max-height:             150px;
         margin-top:             10px;
         margin-bottom:             10px;
         vertical-align:         middle;
@@ -76,16 +82,100 @@
 
 .banner .suitcases
 {
+
     display:                    none;
     // clear:                      both;
-
+    max-width:                  290px;
        @include breakpoint(M) 
        {
             vertical-align:             middle;
             display:                    inline-block;
-            width:                      14vw;
-            height:                     14vw;
-            margin-left:                4vw;
+            width:                      19vw;
+            height:                     20vw;
+            margin-left:                0vw;
             position: absolute;
       }
+
+        @include breakpoint(L) 
+        {
+            top: 0;
+            // width:                      23vw;
+            // height:                     23vw;
+            // margin-left:                0vw;
+        }
+}
+
+
+.banner__titles
+{
+    display:                inline-block;
+
+    @include breakpoint(M) {
+        //content
+        max-width:              45vw;
+        vertical-align:         middle;
+        font-size:              2.75vw;
+        position:               relative;
+        top:                    10px;
+      }
+
+}
+
+.banner__subtitle
+{
+    font-size:          0.4em;
+    display: none;
+    
+       @include breakpoint(M) {
+        display: block;
+      }
+
+    h4
+    {
+        margin-top:         0.2em;
+        
+    }
+}
+
+
+
+
+
+
+
+
+//NAVS
+//
+
+.banner__navs
+{
+    font-size: 1.1vw;
+    
+    .navbar--language--top a
+    {
+    font-size: 1.1vw;
+
+    }
+
+    @include breakpoint(XM) 
+    {
+        font-size: 14px;
+    
+        .navbar--language--top a
+        {
+        font-size: 14px;
+
+        }
+
+    }
+
+    &:after
+    {
+        display:            block;
+        line-height:        0;
+        clear:              both;
+        content:            '';
+        width:              1px;
+        height:             1px;
+    }
 }
