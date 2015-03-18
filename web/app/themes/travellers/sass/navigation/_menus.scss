@@ -255,6 +255,11 @@ html.navbar-open
     .lang-item
     { 
         background-color:               $color-calltoaction;
+
+        &:hover
+        {
+            background-color:               $color-calltoaction--hover;
+        }
     }
 
     @include breakpoint(M) 
