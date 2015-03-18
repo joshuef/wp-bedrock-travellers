@@ -15,14 +15,11 @@
     margin-bottom:          10px;
     vertical-align:         middle;  
     background-color:       $color-menu;
-
+    z-index:                $z-overlay;
+    
     @include breakpoint(M) 
     {
-        // max-width:          25vw;
         display: none;
-        // position: relative;
-        // left:   auto;
-        // z-index:            $z-aboveground;
     } 
 }
 
