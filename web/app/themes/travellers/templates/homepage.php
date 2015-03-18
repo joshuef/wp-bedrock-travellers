@@ -87,7 +87,7 @@ Template Name: Home Page
 
     <?php endif; wp_reset_query(); ?>
     </div>
-    <div class="vunes__untertext">
+    <div class="vines__untertext">
         <?php dynamic_sidebar('sidebar-vine'); ?>                   
     </div>
     
@@ -97,7 +97,10 @@ Template Name: Home Page
             <div id="TA_selfserveprop577" class="tripadvisor TA_selfserveprop">
                 <ul id="GQPv5me" class="TA_links oUwRigUNohe">
                 <li id="xv1ZXeqhtC" class="MxTiyag">
-                <a target="_blank" href="http://www.tripadvisor.com/"><img src="http://www.tripadvisor.com/img/cdsi/img2/branding/150_logo-11900-2.png" alt="TripAdvisor"/></a>
+                <a target="_blank" href="http://www.tripadvisor.com/">
+
+                    <img src="<?php _e(get_stylesheet_directory_uri()  . '/images/sowa.gif' ) ; ?>" alt="TripAdvisor"/>
+                </a>
                 </li>
                 </ul>
                 </div>

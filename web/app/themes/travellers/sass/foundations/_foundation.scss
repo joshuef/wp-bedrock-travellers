@@ -12,6 +12,8 @@ html
 body
 {
     @extend %Copy;
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
 

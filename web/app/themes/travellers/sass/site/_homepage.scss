@@ -36,6 +36,14 @@
     margin-left: -5px;
 }    
 
+.vines__untertext:after
+{
+    content: '';
+    display: table;
+    font-size: 0;
+    clear: both;
+}
+
 .minitext__vines
 {
     float: right;
