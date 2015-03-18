@@ -56,5 +56,29 @@ function roots_widgets_init() {
     'before_title'  => '<h4>',
     'after_title'   => '</h4>',
   ));
+  register_sidebar(array(
+    'name'          => __('Look at these rooms', 'roots'),
+    'id'            => 'sidebar-rooms',
+    'before_widget' => '<div class="minitext__rooms %1$s %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h5>',
+    'after_title'   => '</h5>',
+  ));
+  register_sidebar(array(
+    'name'          => __('Korean Video', 'roots'),
+    'id'            => 'sidebar-video',
+    'before_widget' => '<div class="minitext__video %1$s %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h5>',
+    'after_title'   => '</h5>',
+  ));
+  register_sidebar(array(
+    'name'          => __('Vine texts', 'roots'),
+    'id'            => 'sidebar-vine',
+    'before_widget' => '<div class="minitext__vines %1$s %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h5>',
+    'after_title'   => '</h5>',
+  ));
 }
 add_action('widgets_init', 'roots_widgets_init');

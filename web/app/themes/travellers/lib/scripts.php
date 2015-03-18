@@ -173,7 +173,7 @@ function roots_jquery_local_fallback($src, $handle = null)
   static $add_jquery_fallback = false;
 
   if ($add_jquery_fallback) {
-    echo '<script>window.jQuery || document.write(\'<script src="' . get_template_directory_uri() . '/assets/vendor/jquery/dist/jquery.min.js?1.11.1"><\/script>\')</script>' . "\n";
+    echo '<script>window.jQuery || document.write(\'<script src="' . get_stylesheet_directory_uri() . '/js/vendor/jquery-1.11.1.min.js"><\/script>\')</script>' . "\n";
     $add_jquery_fallback = false;
   }
 

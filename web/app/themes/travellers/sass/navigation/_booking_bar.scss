@@ -236,25 +236,20 @@ $icon-now-size: 5.5em;
 {
     @extend %Intro;
     border: none;
-    background-color:       $color-darkgrey;
+    background-color:       transparent;
+    position: relative;
     // position: relative;
     vertical-align: middle;
     font-size: 1.2em;
     padding-right: 4.5em;
         margin-left: 40px;
-
+    z-index: $z-page;
     &:focus
     {
         outline: none;
     }
 
-    // &:after
-    // {
-    //     @extend .icon-now;
-    //     position: absolute;
-    //     right: 0;
-    //     top: -1e
-    // }
+
 }
 
 .icon-now

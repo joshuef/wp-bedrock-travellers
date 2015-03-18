@@ -57,6 +57,10 @@ Template Name: Home Page
         <div class="showcase__pic  js-showcase__pic" data-lazy-image="http://lorempixel.com/480/259/" alt="">
         </div>
     </div>
+    <div class="showcase__untertext">
+        <?php dynamic_sidebar('sidebar-rooms'); ?>                   
+        <?php dynamic_sidebar('sidebar-video'); ?>                   
+    </div>
     <div class="copy">
         <h2><?php the_title(); ?></h2>
         <?php the_content(); ?>
@@ -82,6 +86,9 @@ Template Name: Home Page
         <?php endwhile; ?>
 
     <?php endif; wp_reset_query(); ?>
+    </div>
+    <div class="vunes__untertext">
+        <?php dynamic_sidebar('sidebar-vine'); ?>                   
     </div>
     
 
@@ -118,8 +125,12 @@ Template Name: Home Page
                     <?php
                         // Grab the metadata from the database
                         $icon = get_post_meta( get_the_ID(), '_trv_icon', true ); ?>
-                    <div class="icon-<?php _e( $icon ) ?>"></div>
-                    <h3><?php the_title(); ?></h1>
+                    <a href="<?php the_permalink(); ?>">
+                        <div class="icon-<?php _e( $icon ) ?>"></div>
+                    </a>
+                    <a href="<?php the_permalink(); ?>">
+                        <h3 class="homepage__section__title"><?php the_title(); ?></h3>
+                    </a>
 
                     <?php the_content(); ?>
 
