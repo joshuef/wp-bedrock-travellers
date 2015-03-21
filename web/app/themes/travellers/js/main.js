@@ -127,6 +127,8 @@ var Travellers = {
             var self = this;
             self.fishSize = window.getComputedStyle( document.body,':after' ).getPropertyValue( 'content' );
             fishSize = self.fishSize;
+            
+            self.makeBookingMeasureUp();
 
             if( fishSize === 'shrimp' || fishSize === 'tuna' )
             {
@@ -146,6 +148,20 @@ var Travellers = {
               //better way to do this than global?
               window.trv__setupSelect2s();
             }
+        },
+
+        makeBookingMeasureUp : function( )
+        {
+            //not for mobile
+            if( fishSize !== 'shrimp' && fishSize !== 'tuna' )
+            {
+                var bookingBar = $( '.js-booking-bar' );
+                var rhsBooking = this.booking.offset().left + this.booking.width();
+                var rhsBookingBar = bookingBar.offset().left + bookingBar.width();
+
+                this.booking.css('padding-left', rhsBookingBar - rhsBooking + 5 )
+            }
+
         },
 
         removeContactForBigFish : function ( )
