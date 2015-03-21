@@ -32,12 +32,12 @@ var Travellers = {
         // JavaScript to be fired on all pages
             var self = this;
 
-            this.fonz = $('#main-content').smoothState(
-                        { 
-                            prefetch: true,
-                            development: true,
-                            pageCacheSize: 4
-                        });
+            // this.fonz = $('#main-content').smoothState(
+            //             { 
+            //                 prefetch: true,
+            //                 development: true,
+            //                 pageCacheSize: 4
+            //             });
 
 
             // not working . maybe overkill / maybe just have nav inside the container
@@ -276,6 +276,8 @@ var Travellers = {
         },
 
 
+
+
         /**
          * Sets up jq behaviour for nav menus to slide in from the side
          * via access data-target on the toggler buttons
@@ -371,8 +373,15 @@ var Travellers = {
     }
   },
   // About us page, note the change from about-us to about_us.
-  about_us: {
+  gallery: {
     init: function() {
+
+        // setupLightBox : function ( )
+        // {
+            console.log( 'THISISHAPPENING' );
+            $( '.js-gallery-image' ).colorbox();
+
+        // },
       // JavaScript to be fired on the about us page
     }
   }
@@ -392,6 +401,7 @@ var UTIL = {
     UTIL.fire('common');
 
     $.each(document.body.className.replace(/-/g, '_').split(/\s+/),function(i,classnm) {
+      // console.log( classnm );
       UTIL.fire(classnm);
     });
   }

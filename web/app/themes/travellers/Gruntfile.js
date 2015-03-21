@@ -32,7 +32,7 @@ watch: {
 },
 browserSync: {
     bsFiles: {
-        src : ['css/*.css', 'js/*.js', '**/*.php']
+        src : ['css/*.css', 'js/**/*.js', '**/*.php']
     },
     options: {
             proxy: "dev.travellersinn.pl",
@@ -79,7 +79,7 @@ grunticon: {
     uglify: {
         my_target: {
           files: {
-            'js/site.min.js': ['js/main.js', 'js/vendor/modernizr.js', 'js/vendor/smoothState.js', 'js/vendor/basic.slider.js' ]
+            'js/site.min.js': ['js/main.js', 'js/vendor/modernizr.js', 'js/vendor/smoothState.js', 'js/vendor/basic.slider.js', 'js/vendor/jquery.colorbox.js' ]
           }
     }
   }

@@ -58,6 +58,43 @@ function travellers_metaboxes( array $meta_boxes ) {
 		)
 	);
 
+	$meta_boxes['gallery'] = array(
+		'id'            => 'gallery_metaboxes',
+		'title'         => __( 'Gallery Images', 'trv' ),
+		'object_types'  => array( 'page', ), // Post type
+		'context'       => 'normal',
+		'priority'      => 'high',
+        'show_on'      => array( 'key' => 'page-template', 'value' => 'templates/gallery-page.php' ),
+		'show_names'    => true, // Show field names on the left
+		// 'cmb_styles' => false, // false to disable the CMB stylesheet
+		'fields'  => array(
+			array(
+				'name'    => __( 'Gallery Images', 'trv' ),
+				'desc'    => __( 'gallery images to shown on the page. They can be reordered I hope.', 'trv' ),
+				'id'      => $prefix . 'gallery_images',
+				'type'    => 'group',
+				'options' => array(
+					'group_title'   => __( 'Image {#}', 'trv' ), // since version 1.1.4, {#} gets replaced by row number
+			        'add_button'    => __( 'Add Another Image', 'trv' ),
+			        'remove_button' => __( 'Remove Image', 'trv' ),
+			        'sortable'      => true, // beta
+				),
+				'fields'      => array(
+			        array(
+					    'name' => 'Image File',
+					    'desc' => 'Upload an image or enter an URL.',
+					    'id' => $prefix . 'gallery_image_file',
+					    'type' => 'file',
+					    // Optionally hide the text input for the url:
+					    // 'options' => array(
+					    //     'url' => false,
+					    // ),
+				    )
+		        )
+			)
+		)
+	);
+
 
 	// Add other metaboxes as needed
 
