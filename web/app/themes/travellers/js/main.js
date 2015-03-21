@@ -376,13 +376,7 @@ var Travellers = {
   gallery: {
     init: function() {
 
-        // setupLightBox : function ( )
-        // {
-            console.log( 'THISISHAPPENING' );
-            $( '.js-gallery-image' ).colorbox();
-
-        // },
-      // JavaScript to be fired on the about us page
+      // JavaScript to be fired on the gallery page
     }
   }
 };

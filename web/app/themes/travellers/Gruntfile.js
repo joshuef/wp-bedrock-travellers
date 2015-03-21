@@ -79,7 +79,7 @@ grunticon: {
     uglify: {
         my_target: {
           files: {
-            'js/site.min.js': ['js/main.js', 'js/vendor/modernizr.js', 'js/vendor/smoothState.js', 'js/vendor/basic.slider.js', 'js/vendor/jquery.colorbox.js' ]
+            'js/site.min.js': ['js/main.js', 'js/vendor/modernizr.js', 'js/vendor/smoothState.js', 'js/vendor/basic.slider.js' ]
           }
     }
   }
