@@ -1,0 +1,43 @@
+.content h1,
+.content h2,
+.content h3,
+.content table,
+.content p,
+{
+    margin-left: 30px;
+}
+
+
+table
+{
+    border-spacing: 10px;
+    border-collapse: separate;
+
+    td
+    {
+        padding: 5px;
+        margin: 2px;
+
+    }
+
+    tr
+    {
+        display: block;
+        margin-bottom: -15px;
+    }
+
+    tr:nth-child(odd) td
+    {
+        background-color: #FFF;
+    }
+    tr:nth-child(even) td
+    {
+        background-color: #F3F3F4;
+    }
+
+    .highlight
+    {
+        color: $color-calltoaction;
+        background-color: #FFF;
+    }
+}

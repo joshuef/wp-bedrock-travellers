@@ -148,11 +148,12 @@ html.navbar-open
         background-color:       $color-greenblue;
 
     }
+    font-size:              12px;
 
     @include breakpoint(M) 
     {
         display: inline-block;
-        font-size:              1vw;
+        font-size:              14px;
     }
 
     a
