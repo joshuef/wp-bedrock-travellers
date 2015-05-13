@@ -27,8 +27,16 @@ sass: {
     }
 },
 watch: {
-    files: ['sass/**/*.scss'],
-    tasks: [ 'sass', 'autoprefixer']
+    styles: 
+    {
+        files: ['sass/**/*.scss'],
+        tasks: [ 'sass', 'autoprefixer']
+    },
+    // js: 
+    // {
+    //     files: ['js/**/*.js'],
+    //     tasks: [ 'sass', 'autoprefixer']
+    // },
 },
 browserSync: {
     bsFiles: {

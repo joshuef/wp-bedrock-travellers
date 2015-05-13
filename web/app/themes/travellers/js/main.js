@@ -128,7 +128,7 @@ var Travellers = {
             self.fishSize = window.getComputedStyle( document.body,':after' ).getPropertyValue( 'content' );
             fishSize = self.fishSize;
             
-            self.makeBookingMeasureUp();
+            // self.makeBookingMeasureUp();
 
             if( fishSize === 'shrimp' || fishSize === 'tuna' )
             {
@@ -139,34 +139,36 @@ var Travellers = {
             }
             else
             {
+            console.log( 'THISISHAPPppppppENING' );
               //we're larger so...
               self.showVines();
               self.loadSlider();
               this.removeContactForBigFish();
-              this.preventBookingClickForBigFish();
+              // this.preventBookingClickForBigFish();
 
               //better way to do this than global?
               window.trv__setupSelect2s();
             }
         },
 
-        makeBookingMeasureUp : function( )
-        {
-            //not for mobile
-            if( fishSize !== 'shrimp' && fishSize !== 'tuna' )
-            {
-                var bookingBar = $( '.js-booking-bar' );
-                var rhsBooking = this.booking.offset().left + this.booking.width();
-                var rhsBookingBar = bookingBar.offset().left + bookingBar.width();
+        // makeBookingMeasureUp : function( )
+        // {
+        //     //not for mobile
+        //     if( fishSize !== 'shrimp' && fishSize !== 'tuna' )
+        //     {
+        //         var bookingBar = $( '.js-booking-bar' );
+        //         var rhsBooking = this.booking.offset().left + this.booking.width();
+        //         var rhsBookingBar = bookingBar.offset().left + bookingBar.width();
 
-                this.booking.css('padding-left', rhsBookingBar - rhsBooking + 5 )
-            }
+        //         this.booking.css('padding-left', rhsBookingBar - rhsBooking + 5 )
+        //     }
 
-        },
+        // },
 
         removeContactForBigFish : function ( )
         {
             this.contactToggleBkp = this.contactToggle;
+            console.log( 'removing contact', this.contactToggle );
             this.contactToggle.parent().remove();     
         },
 
@@ -176,11 +178,11 @@ var Travellers = {
         //     this.contactToggle.remove();     
         // },
 
-        preventBookingClickForBigFish : function ( )
-        {
-            this.booking.click( function( e ) { e.preventDefault(); });
-            this.booking.addClass( 'big-fish' );
-        },
+        // preventBookingClickForBigFish : function ( )
+        // {
+        //     this.booking.click( function( e ) { e.preventDefault(); });
+        //     this.booking.addClass( 'big-fish' );
+        // },
 
         hideSrollbarOnSmallerScreens : function ( )
         {
@@ -311,7 +313,7 @@ var Travellers = {
             // gets a link with title contact and makes it a toggle
             if( contactToggle )
             {
-                contactToggle.data( 'target', $( '.js-navbar--contact' )  )
+                contactToggle.data( 'target', $( '.js-navbar--contact' )  );
                 toggles.push( contactToggle );
 
                 //to hide it on larger screens via css
@@ -319,13 +321,21 @@ var Travellers = {
 
             }
 
-            mask.click( function( e )
+            var eventTrigger = 'click';
+
+            if( Modernizr.touch )
+            {
+                eventTrigger = "touchend";
+            }
+
+            mask.on( eventTrigger, function( e )
             {                   
                 console.log( 'masking itt' );
                 mask.removeClass( 'open' );
                 menus.removeClass( 'open' );
                 $( 'html' ).removeClass( 'navbar-open')
             })
+                console.log( 'EVENT', eventTrigger );
 
             $.each( toggles, function eachMenu( i, toggle )
             {
@@ -337,8 +347,7 @@ var Travellers = {
                     toggle.data( 'target', $( toggle.data( 'target' ) ) );
                 }
 
-
-                toggle.bind( 'click', function( e )
+                toggle.bind( eventTrigger, function( e )
                 {
                     e.preventDefault();
                     toggle.data( 'target' ).toggleClass( 'open' );

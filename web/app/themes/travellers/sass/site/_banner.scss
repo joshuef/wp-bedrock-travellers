@@ -9,7 +9,7 @@
     min-height:                 40px;
     position:                   fixed;
     top:                        0;
-    z-index:                    $z-foreground;
+    // z-index:                    $z-foreground;
 
     @include breakpoint(M) 
     {

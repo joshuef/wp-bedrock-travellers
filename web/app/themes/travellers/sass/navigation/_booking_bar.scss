@@ -1,3 +1,45 @@
+
+
+.menu-book-your-room
+{
+    // @extend .nav__item;
+     display:            block;
+        box-sizing:         border-box;
+        color:              $color-white;
+        @extend %Intro;
+        width:              100%;
+        padding-left:       2em;
+        padding-right:      2em;
+        padding-top:        1em;
+        padding-bottom:     1em;
+
+        line-height:1.6em;
+    
+
+    z-index: 100;
+    background-color: $color-calltoaction;
+    width: 100%;
+    // top: -40px;
+    position: relative;
+    @include breakpoint(M) 
+    {
+        display: inline-block;
+        font-size:              1vw;
+    }
+    
+    // padding-left:
+    &:before
+    {
+        @extend %pseudo;
+        top: 0;
+        height:             100%;
+        background-color: $color-calltoaction;
+        width:              900%;
+        left:               -900%;
+    }
+}
+
+
 .booking-bar
 {
     background-color: $color-white;
@@ -8,11 +50,13 @@
     min-width:      200px;
     display: none;
     position: relative;
-    top: -10px;
+    top: -42px;
+    z-index: 201;
+    right: -5px;
 
    @include breakpoint(M) 
    {
-            display: none;
+            // display: none;
         display: inline-block;
         
     }

@@ -20,10 +20,11 @@ html.navbar-open
         position:               relative;
         height:                 auto;
         margin-top:             1em;
-        width:                  90%;
+        width:                  100%;
         display:                block;
         margin:                 1em auto;
-        margin-bottom:          0.5em;
+        margin-bottom:          0em;
+        // text-align: right;
     }
 
     @include breakpoint(L) 
@@ -190,8 +191,24 @@ html.navbar-open
     //     display: inline-block;
     // }
 
+
     @include breakpoint(M) 
     {
+         &:before
+        {
+            @extend %pseudo;
+            position: relative;
+            background-color: none;
+            
+            width: 25.5vw;
+            display: inline-block;
+            // height:             100%;
+            // // background-color: $color-calltoaction;
+            // width:              900%;
+            // left:               -900%;
+        }
+
+
         display:            inline-block;
         margin:             0 auto;
         // width:              80%;
@@ -218,19 +235,23 @@ html.navbar-open
                 cursor: default;
             }
         }
-        .nav__item:first-child
-        {
-            background-color: $color-calltoaction;
-            // padding-left:
-            &:before
-            {
-                @extend %pseudo;
-                height:             100%;
-                background-color: $color-calltoaction;
-                width:              900%;
-                left:               -900%;
-            }
-        }
+        // .nav__item:first-child
+        // {
+        //     // background-color: $color-calltoaction;
+        //     // padding-left:
+        //     &:before
+        //     {
+        //         @extend %pseudo;
+        //         position: relative;
+        //         background-color: none;
+
+        //         width: 50px;
+        //         // height:             100%;
+        //         // // background-color: $color-calltoaction;
+        //         // width:              900%;
+        //         // left:               -900%;
+        //     }
+        // }
 
         .nav__item:last-child:after
         {
@@ -254,6 +275,8 @@ html.navbar-open
         display: none;
       }
 }
+
+
 
 
 

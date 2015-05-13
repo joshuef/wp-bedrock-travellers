@@ -16,6 +16,8 @@
         <div id="main-content" class="fonz-box scene_element scene_element--fadein">
             <div class="content row  scene_element scene_element--fadein">
                 <div class="booking-bar  js-booking-bar">
+                    <div  class="menu-book-your-room big-fish"title="booking">Book your room</div>
+
                     <?php include( 'templates/maxbooking__include.php'); ?>                 
                     <?php //REMOVED FOR NOW ?>
                     <?php //if ( false ) ://(roots_display_sidebar()) : ?>
