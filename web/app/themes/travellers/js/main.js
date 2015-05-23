@@ -45,7 +45,7 @@ var Travellers = {
 
 
             self.hideSrollbarOnSmallerScreens();
-
+            self.checkCurrency();
 
             //To be run only on certain fishsizes
             $( document ).ready( function()
@@ -74,6 +74,35 @@ var Travellers = {
             });
         },
 
+
+        checkCurrency : function ( )
+        {
+
+//             function get(json) {
+//     var rate = json['rate'];
+// }
+            var rateText = $('.js-rate' );
+
+            if( rateText.length > 0 )
+            {
+                console.log( 'cehcking' );
+                var script = document.createElement('script');
+                script.src = 'http://jsonrates.com/get/?'+
+                    'from=EUR'+
+                    '&to=PLN'+
+                    '&apiKey=jr-7507df016efc1b39b8cb7f2d3dd9a029' +
+                    '&callback=showRate';
+
+                document.head.appendChild(script);
+            }
+
+            window.showRate = function ( json )
+            {
+                var rate = json[ 'rate' ];
+                rate = Math.round( rate * 100) / 100;
+            };
+        },
+        
 
         loadSlider : function( )
         {
