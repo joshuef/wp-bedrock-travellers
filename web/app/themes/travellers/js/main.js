@@ -100,6 +100,8 @@ var Travellers = {
             {
                 var rate = json[ 'rate' ];
                 rate = Math.round( rate * 100) / 100;
+
+                rateText.text( rate );
             };
         },
         
