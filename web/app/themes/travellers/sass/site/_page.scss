@@ -4,7 +4,11 @@
 .content table,
 .content p,
 {
-    margin-left: 30px;
+    @include breakpoint(M) 
+    {
+        margin-left: 30px;
+        
+    }
 }
 
 

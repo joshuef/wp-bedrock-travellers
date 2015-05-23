@@ -309,6 +309,8 @@ var Travellers = {
             var mask        = $( '.js-nav-mask' );
             var menus       = $( '.js-navbar' );
 
+            console.log( 'ALL TOGGLES', toggles );
+
             var contactToggle = this.contactToggle;
             // gets a link with title contact and makes it a toggle
             if( contactToggle )
@@ -339,6 +341,11 @@ var Travellers = {
 
             $.each( toggles, function eachMenu( i, toggle )
             {
+                console.log( 'FUCKING TOGGLE', toggle );
+            });
+
+            $.each( toggles, function eachMenu( i, toggle )
+            {
                 var targetMenu;
 
                 if( !toggle.jquery )
@@ -346,9 +353,11 @@ var Travellers = {
                     toggle = $( toggle );
                     toggle.data( 'target', $( toggle.data( 'target' ) ) );
                 }
+                console.log( 'toggleS??', toggles, toggle );
 
                 toggle.bind( eventTrigger, function( e )
                 {
+                    console.log( 'YOU RANG?', toggle.data( 'target' ) );
                     e.preventDefault();
                     toggle.data( 'target' ).toggleClass( 'open' );
                     $( 'html' ).toggleClass( 'navbar-open')

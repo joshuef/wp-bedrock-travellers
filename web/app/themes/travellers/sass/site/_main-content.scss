@@ -21,7 +21,7 @@ $barWidth : 200px;
     display: none;
     vertical-align: top;
     text-align: left;
-    @include breakpoint( M )
+    @include breakpoint( XM )
     {
         display: inline-block;
         // width: $barWidth;
@@ -32,11 +32,12 @@ $barWidth : 200px;
 
 .main
 {
-    margin-top: 62px;
+    margin-top: 43px;
     min-height: 140vh;
     text-align: left;
+    margin-left: -5px;
 
-    @include breakpoint( M ) 
+    @include breakpoint( XM ) 
     {
         margin-top: 0;
         vertical-align: top;

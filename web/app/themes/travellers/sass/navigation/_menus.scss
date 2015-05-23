@@ -19,17 +19,17 @@ html.navbar-open
     {
         position:               relative;
         height:                 auto;
-        margin-top:             1em;
+        // margin-top:             1em;
         width:                  100%;
         display:                block;
-        margin:                 1em auto;
+        margin:                 0 auto;
         margin-bottom:          0em;
         // text-align: right;
     }
 
     @include breakpoint(L) 
     {
-        margin-top: 1.5em;
+        // margin-top: 1.5em;
         //content
     }
 }
@@ -153,8 +153,14 @@ html.navbar-open
     @include breakpoint(M) 
     {
         display: inline-block;
-        font-size:              14px;
+            // font-size:              1.1vw;
+
     }
+    @include breakpoint(L)
+    {
+        font-size:              14px;
+        
+    } 
 
     a
     {
@@ -192,22 +198,26 @@ html.navbar-open
     //     display: inline-block;
     // }
 
-
+ // &:before
+ //        {
+ //            display: none;
+ //        }
     @include breakpoint(M) 
     {
-         &:before
-        {
-            @extend %pseudo;
-            position: relative;
-            background-color: none;
+        // padding-left: 7px;
+        //  &:before
+        // {
+        //     @extend %pseudo;
+        //     position: relative;
+        //     background-color: none;
             
-            width: 25.5vw;
-            display: inline-block;
-            // height:             100%;
-            // // background-color: $color-calltoaction;
-            // width:              900%;
-            // left:               -900%;
-        }
+        //     width: 25.5vw;
+        //     display: inline-block;
+        //     // height:             100%;
+        //     // // background-color: $color-calltoaction;
+        //     // width:              900%;
+        //     // left:               -900%;
+        // }
 
 
         display:            inline-block;
