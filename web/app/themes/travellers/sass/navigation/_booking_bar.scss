@@ -12,7 +12,9 @@
     padding-top:        1em;
     padding-bottom:     1em;
 
-    line-height:1.4em;
+    // line-height:1.4em;
+            line-height:        16px;
+
     
 
     background-color: $color-calltoaction;
@@ -48,11 +50,16 @@
 
 .booking-bar-container
 {
-    display: inline-block;
+    display: none;
     width:          25%;
     margin-left:    -5px; //magic spacing
     position: relative;
     
+   @include breakpoint(XM) 
+   {
+    
+    display: inline-block;
+   }
 }
 .booking-bar
 {

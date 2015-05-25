@@ -38,16 +38,21 @@ $barWidth : 200px;
 
 .main
 {
-    margin-top: 43px;
     min-height: 140vh;
+    margin-top: 43px;
     text-align: left;
     margin-left: -5px;
 
-    @include breakpoint( XM ) 
+    @include breakpoint( M )
     {
+        // margin-top: 0;
         margin-top: 0;
         vertical-align: top;
         display: inline-block;
+        
+    } 
+    @include breakpoint( XM ) 
+    {
         width:      75%;
         max-width:  60em;
         // margin-top: 0;

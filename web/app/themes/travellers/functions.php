@@ -48,6 +48,10 @@ function special_nav_class($classes, $item)
 }
 
 
+add_image_size( 'page-header', 960, 175, true ); // (cropped)
+
+
+
 // function add_menuclass($ulclass) {
 // return preg_replace('/<a/', '<a class="js-site-nav"', $ulclass, 1);
 // }
