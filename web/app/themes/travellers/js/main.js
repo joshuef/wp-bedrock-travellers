@@ -157,10 +157,9 @@ var Travellers = {
         {
             var self = this;
             self.fishSize = window.getComputedStyle( document.body,':after' ).getPropertyValue( 'content' );
-            fishSize = self.fishSize;
-            
-            // self.makeBookingMeasureUp();
+            fishSize = self.fishSize.replace( /\'/g, '');
 
+            
             if( fishSize === 'shrimp' || fishSize === 'tuna' )
             {
                 // self.makeCurrentLanguageAToggler();
@@ -170,31 +169,17 @@ var Travellers = {
             }
             else
             {
-            console.log( 'THISISHAPPppppppENING' );
-              //we're larger so...
-              self.showVines();
-              self.loadSlider();
-              this.removeContactForBigFish();
-              // this.preventBookingClickForBigFish();
+                console.log( 'big screeeen' );
+                //we're larger so...
+                self.showVines();
+                self.loadSlider();
+                this.removeContactForBigFish();
 
-              //better way to do this than global?
-              window.trv__setupSelect2s();
+                //better way to do this than global?
+                window.trv__setupSelect2s();
             }
         },
 
-        // makeBookingMeasureUp : function( )
-        // {
-        //     //not for mobile
-        //     if( fishSize !== 'shrimp' && fishSize !== 'tuna' )
-        //     {
-        //         var bookingBar = $( '.js-booking-bar' );
-        //         var rhsBooking = this.booking.offset().left + this.booking.width();
-        //         var rhsBookingBar = bookingBar.offset().left + bookingBar.width();
-
-        //         this.booking.css('padding-left', rhsBookingBar - rhsBooking + 5 )
-        //     }
-
-        // },
 
         removeContactForBigFish : function ( )
         {
@@ -203,17 +188,6 @@ var Travellers = {
             this.contactToggle.parent().remove();     
         },
 
-        // removeContactForBigFish : function ( )
-        // {
-        //     this.contactToggleBkp = this.contactToggle;
-        //     this.contactToggle.remove();     
-        // },
-
-        // preventBookingClickForBigFish : function ( )
-        // {
-        //     this.booking.click( function( e ) { e.preventDefault(); });
-        //     this.booking.addClass( 'big-fish' );
-        // },
 
         hideSrollbarOnSmallerScreens : function ( )
         {
@@ -289,40 +263,41 @@ var Travellers = {
 
             compare the host id to the link. or if its relative?? or just use a class
          */
-        makeNavigationSmooth : function ( element )
-        {
-            var self = this;
-            if( !element.jquery )
-            {
-                element = $( element );
-            }
+        // makeNavigationSmooth : function ( element )
+        // {
+        //     var self = this;
+        //     if( !element.jquery )
+        //     {
+        //         element = $( element );
+        //     }
 
-            if( !element.prop( 'href' ) )
-            {
-                element = element.children( 'a[href]' );
+        //     if( !element.prop( 'href' ) )
+        //     {
+        //         element = element.children( 'a[href]' );
 
-                if( ! element.length )
-                {
-                    $.error( 'no href on your link ', element  )
-                    return;
+        //         if( ! element.length )
+        //         {
+        //             $.error( 'no href on your link ', element  )
+        //             return;
                     
-                }
-            }
+        //         }
+        //     }
 
-            element.click( function smoothThisNavigation( e )
-            {
-                e.preventDefault();
-                var target = $( e.target );
-                var href    = target.prop( 'href' );
+        //     element.click( function smoothThisNavigation( e )
+        //     {
 
-                if( typeof href !== 'undefined' )
-                {
-                    // self.fonz.load( href );
-                }
+        //         e.preventDefault();
+        //         var target = $( e.target );
+        //         var href    = target.prop( 'href' );
 
-            });
+        //         if( typeof href !== 'undefined' )
+        //         {
+        //             // self.fonz.load( href );
+        //         }
 
-        },
+        //     });
+
+        // },
 
 
 
@@ -339,8 +314,8 @@ var Travellers = {
             var toggles     = $( '.js-navbar-toggle' );
             var mask        = $( '.js-nav-mask' );
             var menus       = $( '.js-navbar' );
-
-            console.log( 'ALL TOGGLES', toggles );
+            var self = this;
+            console.log( 'ALL TOGGLES', toggles, mask );
 
             var contactToggle = this.contactToggle;
             // gets a link with title contact and makes it a toggle
@@ -363,17 +338,17 @@ var Travellers = {
 
             mask.on( eventTrigger, function( e )
             {                   
-                console.log( 'masking itt' );
+                console.log( 'masking itt', mask );
                 mask.removeClass( 'open' );
                 menus.removeClass( 'open' );
                 $( 'html' ).removeClass( 'navbar-open')
             })
-                console.log( 'EVENT', eventTrigger );
+                // console.log( 'EVENT', eventTrigger );
 
-            $.each( toggles, function eachMenu( i, toggle )
-            {
-                console.log( 'FUCKING TOGGLE', toggle );
-            });
+            // $.each( toggles, function eachMenu( i, toggle )
+            // {
+            //     // console.log( 'FUCKING TOGGLE', toggle );
+            // });
 
             $.each( toggles, function eachMenu( i, toggle )
             {
@@ -384,20 +359,48 @@ var Travellers = {
                     toggle = $( toggle );
                     toggle.data( 'target', $( toggle.data( 'target' ) ) );
                 }
-                console.log( 'toggleS??', toggles, toggle );
+                // console.log( 'toggleS??', toggles, toggle );
 
                 toggle.bind( eventTrigger, function( e )
                 {
-                    console.log( 'YOU RANG?', toggle.data( 'target' ) );
-                    e.preventDefault();
-                    toggle.data( 'target' ).toggleClass( 'open' );
-                    $( 'html' ).toggleClass( 'navbar-open')
-                    toggle.data( 'target' ).siblings().removeClass( 'open' );
-                    mask.toggleClass( 'open' );
+                    // console.log( 'YOU RANG?', toggle.data( 'target' ) );
+                    // e.preventDefault();
+                    self.toggleMenuDrawer( toggle );
+
+                    // if( $('html').hasClass( 'navbar-open') )
+                    // {
+                    //     $('.main__the-page:before').one( 'click', function()
+                    //     {
+                    //         self.toggleMenuDrawer( toggle );
+                    //     } );
+                    // }
+
+                    // if( mask.hasClass( 'open' ) )
+                    // {
+                    //     console.log( 'mask is open lets close it' );
+                    //     mask.removeClass( 'open' );
+                        
+                    // }
+                    // else
+                    // {
+                    //     console.log( 'mask is not open lets open it' );
+                    //     mask.addClass('open');
+                    // }
+
+                    // console.log( 'and our mask??', mask );
                 });
 
 
             });
+        },
+
+        toggleMenuDrawer : function( toggle )
+        {
+            toggle.data( 'target' ).toggleClass( 'open' );
+            $( 'html' ).toggleClass( 'navbar-open')
+            toggle.data( 'target' ).siblings().removeClass( 'open' );
+
+
         },
 
         /**

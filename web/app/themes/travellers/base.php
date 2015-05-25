@@ -56,11 +56,13 @@
                         <div class="nav-mask  js-nav-mask"></div>
 
                     </div>
-                <?php 
-                    global $post;
-                    setup_postdata( $post ); 
-                ?>
-                    <?php include roots_template_path(); ?>
+                    <div class="main__the-page">
+                        <?php 
+                            global $post;
+                            setup_postdata( $post ); 
+                        ?>
+                        <?php include roots_template_path(); ?>
+                    </div>
                 </main><!-- /.main -->
 
             </div><!-- /.content -->

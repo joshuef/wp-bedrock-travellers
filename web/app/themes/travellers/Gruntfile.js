@@ -1,6 +1,7 @@
 module.exports = function(grunt) {
-
-require('load-grunt-tasks')(grunt);
+    
+require('time-grunt')(grunt);
+require('jit-grunt')(grunt);
 
 grunt.initConfig({
     jshint: {
@@ -15,7 +16,7 @@ grunt.initConfig({
 sass: {
     options: {
         sourceMap: true,
-        outputStyle: 'compressed'
+        // outputStyle: 'compressed'
     },
     modern : {
         files: { 
@@ -44,7 +45,8 @@ browserSync: {
     },
     options: {
             proxy: "dev.travellersinn.pl",
-            watchTask: true
+            watchTask: true,
+            open: false
         }
 },
 autoprefixer : {
