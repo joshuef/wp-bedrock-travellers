@@ -317,19 +317,16 @@ $icon-now-size: 5.5em;
 
 .icon-now
 {
-    padding-top: $icon-now-size;
+    // padding-top: $icon-now-size;
     width: $icon-now-size;
     height: $icon-now-size;
     margin-left: -$icon-now-size;
     vertical-align: middle;
     display: inline-block;
-        position: absolute;
-        top: -0.9em;
+    position: absolute;
 
-    // margin-top: -1.5em;
-    // margin-bottom: -3.5em;
-    // margin-top: calc( - $icon-now-size / 4 );
-    // margin-bottom: calc( - $icon-now-size / 2)
+    margin-top: -1.7em;
+
 }
 
 .booking_submission-row .arrow_box--left

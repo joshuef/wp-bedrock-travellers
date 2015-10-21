@@ -336,6 +336,12 @@ var Travellers = {
                 eventTrigger = "touchend";
             }
 
+            if (window.navigator.msPointerEnabled) 
+            {
+                eventTrigger = "MSPointerUp";
+            }
+
+
             mask.on( eventTrigger, function( e )
             {                   
                 console.log( 'masking itt', mask );
