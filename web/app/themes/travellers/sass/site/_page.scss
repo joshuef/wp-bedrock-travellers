@@ -37,6 +37,10 @@ table
     border-spacing: 10px;
     border-collapse: separate;
 
+    td, th {
+    width: 100px;
+}
+
     td
     {
         display: inline-block;

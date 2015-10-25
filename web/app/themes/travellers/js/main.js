@@ -110,6 +110,8 @@ var Travellers = {
         {
             // var $sliderBox = $( '<div class="js-sliderbox  sliderbox"></div>' );
             // var showcase = $( '.js-showcase' );
+            // 
+            console.log( 'LOADING SLIDER' );
             if( ! this.sliderLoaded )
             {
                 $slider = $( '.js-slider' );
@@ -157,13 +159,17 @@ var Travellers = {
         {
             var self = this;
             self.fishSize = window.getComputedStyle( document.body,':after' ).getPropertyValue( 'content' );
-            fishSize = self.fishSize.replace( /\'/g, '');
+            fishSize = self.fishSize.replace( /\"/g, '');
 
+
+            console.log( 'WINDOW READYYY', fishSize );
             
-            if( fishSize === 'shrimp' || fishSize === 'tuna' )
+            // debugger;
+            if( fishSize == 'shrimp' || fishSize == 'tuna' )
             {
                 // self.makeCurrentLanguageAToggler();
                 self.bindNavMenusToSide();
+                console.log( 'smalllllll' );
 
                 $slider = $( '.js-slider' ).addClass( 'wee-fish' );
             }
@@ -381,17 +387,17 @@ var Travellers = {
                     //     } );
                     // }
 
-                    // if( mask.hasClass( 'open' ) )
-                    // {
-                    //     console.log( 'mask is open lets close it' );
-                    //     mask.removeClass( 'open' );
+                    if( mask.hasClass( 'open' ) )
+                    {
+                        console.log( 'mask is open lets close it' );
+                        mask.removeClass( 'open' );
                         
-                    // }
-                    // else
-                    // {
-                    //     console.log( 'mask is not open lets open it' );
-                    //     mask.addClass('open');
-                    // }
+                    }
+                    else
+                    {
+                        console.log( 'mask is not open lets open it' );
+                        mask.addClass('open');
+                    }
 
                     // console.log( 'and our mask??', mask );
                 });
