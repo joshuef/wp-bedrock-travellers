@@ -55,10 +55,7 @@ var Travellers = {
 
                 self.wrapContactLinkTitle();
 
-                if( self.fishSize === 'whale' || self.fishSize === 'shark' )
-                {
-                    self.lazyLoadImages( $( '.js-showcase__pic' ) );
-                }
+               
                 
             });
 
@@ -66,11 +63,11 @@ var Travellers = {
             {
                 self.onWindowReadyLets();
 
-                console.log( self.fishSize );
-                if( self.fishSize === 'whale' || self.fishSize === 'shark' )
-                {
-                    self.lazyLoadImages( $( '.js-showcase__pic' ) );
-                }
+                // console.log( self.fishSize );
+                // if( self.fishSize === 'whale' || self.fishSize === 'shark' )
+                // {
+                //     self.lazyLoadImages( $( '.js-showcase__pic' ) );
+                // }
             });
         },
 
@@ -163,7 +160,8 @@ var Travellers = {
 
 
             console.log( 'WINDOW READYYY', fishSize );
-            
+
+                
             // debugger;
             if( fishSize == 'shrimp' || fishSize == 'tuna' )
             {
@@ -180,6 +178,10 @@ var Travellers = {
                 self.showVines();
                 self.loadSlider();
                 this.removeContactForBigFish();
+
+
+                self.lazyLoadImages( $( '.js-showcase__pic' ) );
+            
 
                 //better way to do this than global?
                 window.trv__setupSelect2s();
@@ -225,12 +227,17 @@ var Travellers = {
          */
         lazyLoadImages : function( $elements )
         {
+
+            console.log( 'BEING LAZYYYY' );
             $.each( $elements, function( i, element )
             {
                 var hideClass = 'lazy-loading__hide' ;
                 var $element = $( element );
                 var $elementImg = $( element ).data( 'lazyImage' );
                 var $targetLink = $element.data( 'targetLink' );
+
+
+                console.log( $element );
 
                 //hide it pre
                 $element.addClass( 'lazy-loading' );
