@@ -214,10 +214,53 @@ var Travellers = {
             {
                 var $vines = $( '.js-vine__thumb' );
 
-                this.lazyLoadImages( $vines );
+                // this.lazyLoadImages( $vines );
                 
                 this.vinesShown = true;
+
+                this.embedVines ( $vines );
+
+
             }
+        },
+
+        embedVines : function ( $vines )
+        {
+            console.log( 'ALL VINES', $vines );
+                var $script = $( 'script' );
+
+                $script.prop( 'src', 'https://platform.vine.co/static/scripts/embed.js' );
+            $.each( $vines, function( i, vine )
+            {
+                var $vine = $( vine );
+                var $iframe = $( '<iframe>');
+
+                // var embedLink = $vine;
+                // var embedLink = $vine.children( 'a' ).prop( 'href' );
+                var embedLink = $vine.data( 'targetLink' );
+                
+                $iframe.prop('src', embedLink + '/embed/simple')
+                    .addClass( 'vine__embed')
+                    .prop( 'frameborder', 0 )
+                    .prop( 'width', 224 )
+                    .prop( 'height', 224 );
+
+
+
+
+                
+                // var $img = $vine.closet( 'img' );
+
+                // console.log( 'OUR IMAGE IS', $img );
+
+                // $img.remove();
+                $vine.append( $iframe );
+
+                console.log( 'VINE LINK', $vines, embedLink );
+            } )
+
+            $( 'body' ).append( $script );
+            // <iframe src="https://vine.co/v/M5nJpaP2KD0/embed/simple" width="300" height="300" frameborder="0"></iframe><script src="https://platform.vine.co/static/scripts/embed.js"></script>
         },
 
         /**
