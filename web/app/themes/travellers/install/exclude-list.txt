@@ -1,0 +1,6 @@
+install
+.git
+sass
+node_modules
+.sass_cache
+bower_components

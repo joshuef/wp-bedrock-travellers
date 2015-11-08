@@ -108,9 +108,9 @@ var Travellers = {
             // var $sliderBox = $( '<div class="js-sliderbox  sliderbox"></div>' );
             // var showcase = $( '.js-showcase' );
             // 
-            console.log( 'LOADING SLIDER' );
             if( ! this.sliderLoaded )
             {
+            console.log( 'LOADING SLIDDDDER' );
                 $slider = $( '.js-slider' );
                 $slides = $( '.js-slide', $slider );
 
@@ -124,7 +124,7 @@ var Travellers = {
                     animtype : 'fade', // accepts 'fade' or 'slide'
                     animduration : 450, // how fast the animation are
                     animspeed : 4000, // the delay between each slide
-                    automatic : false, // automatic
+                    automatic : true, // automatic
 
                     // control and marker configuration
                     showcontrols : true, // show next and prev controls
